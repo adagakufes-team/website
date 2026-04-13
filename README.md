@@ -5,6 +5,27 @@
 - URL: https://adagakufes.com
 - ホスティング: Cloudflare Pages
 
+## 技術スタック
+
+- [React](https://react.dev/) + TypeScript
+- [Vite](https://vite.dev/) （ビルドツール）
+- [Tailwind CSS](https://tailwindcss.com/) （スタイリング）
+
+### ローカル開発
+
+```bash
+npm install
+npm run dev
+```
+
+### ビルド
+
+```bash
+npm run build
+```
+
+`dist/` にビルド結果が出力されます。
+
 ## 開発ルール
 
 ### ブランチ構成
