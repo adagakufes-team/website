@@ -7,8 +7,8 @@
 
 ## 技術スタック
 
+- [Next.js](https://nextjs.org/) （React フレームワーク）
 - [React](https://react.dev/) + TypeScript
-- [Vite](https://vite.dev/) （ビルドツール）
 - [Tailwind CSS](https://tailwindcss.com/) （スタイリング）
 
 ### ローカル開発
@@ -23,8 +23,6 @@ npm run dev
 ```bash
 npm run build
 ```
-
-`dist/` にビルド結果が出力されます。
 
 ## 開発ルール
 
