@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+
 
 const navItems = [
   { label: "あだち大学フェスとは", href: "#about" },
@@ -17,12 +19,18 @@ export default function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-orange-500 text-white shadow-md">
+      <header className="sticky top-0 z-50 bg-orange-400 text-white shadow-md">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 md:px-6">
           
           {/* ロゴ */}
           <Link href="/" onClick={closeMenu} className="text-xl font-bold">
-            あだち大学フェス
+            <Image
+              src="/logo/logo-horizontal.png"
+              alt="あだち大学フェス"
+              width={200}
+              height={40}
+              className="h-10 w-auto"
+            />
           </Link>
 
           {/* PCナビ */}
