@@ -88,7 +88,13 @@ export default function Header() {
             onClick={closeMenu}
             className="text-lg font-bold text-orange-500"
           >
-            あだち大学フェス
+            <Image
+              src="/logo/logo-horizontal.png"
+              alt="あだち大学フェス"
+              width={200}
+              height={50}
+              className="h-6 w-auto"
+            />
           </Link>
 
           {/* 閉じるボタン（SVG） */}
