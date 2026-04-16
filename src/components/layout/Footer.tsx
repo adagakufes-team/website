@@ -39,10 +39,10 @@ export default function Footer() {
           </p>
 
           <div className="flex gap-4 text-2xl">
-            <a href="https://twitter.com" target="_blank">
+            <a href="https://x.com/adagakufes" target="_blank">
               <FaXTwitter />
             </a>
-            <a href="https://instagram.com" target="_blank">
+            <a href="https://www.instagram.com/adagakufes" target="_blank">
               <FaInstagram />
             </a>
           </div>
