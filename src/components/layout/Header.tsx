@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-
 const navItems = [
   { label: "あだち大学フェスとは", href: "#about" },
   { label: "出展団体", href: "#booths" },
@@ -21,7 +20,6 @@ export default function Header() {
     <>
       <header className="sticky top-0 z-50 bg-orange-400 text-white shadow-md">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 md:px-6">
-          
           {/* ロゴ */}
           <Link href="/" onClick={closeMenu} className="text-xl font-bold">
             <Image
@@ -81,7 +79,6 @@ export default function Header() {
         }`}
       >
         <div className="flex items-center justify-between border-b px-4 py-4">
-          
           {/* ロゴ */}
           <Link
             href="/"
