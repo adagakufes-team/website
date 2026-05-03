@@ -24,6 +24,22 @@ npm run dev
 npm run build
 ```
 
+### フォーマット・Lint
+
+コミット時に自動でフォーマットされます（husky + lint-staged）。
+手動で実行する場合は以下のコマンドを使ってください。
+
+```bash
+# フォーマット（自動修正）
+npm run format
+
+# フォーマットチェック（CIと同じ）
+npm run format:check
+
+# Lint
+npm run lint
+```
+
 ## 開発ルール
 
 ### ブランチ構成
@@ -97,6 +113,9 @@ PRを作成する際は、以下の内容を含めてください。
 - [ ] `develop` ブランチから作成したブランチである
 - [ ] ローカルで動作確認済み
 - [ ] 不要なファイル（テンプレートのデフォルトコード等）が含まれていない
+- [ ] `npm run format:check` でエラーが出ない
+- [ ] `npm run lint` でエラーが出ない
+- [ ] `npm run build` が成功する
 ```
 
 ### 注意事項
