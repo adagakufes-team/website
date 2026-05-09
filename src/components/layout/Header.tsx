@@ -41,11 +41,7 @@ export default function Header() {
           </nav>
 
           {/* ハンバーガー（SVG） */}
-          <button
-            onClick={() => setIsOpen(true)}
-            className="md:hidden"
-            aria-label="メニューを開く"
-          >
+          <button onClick={() => setIsOpen(true)} className="md:hidden" aria-label="メニューを開く">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-8 w-8"
@@ -54,23 +50,14 @@ export default function Header() {
               stroke="currentColor"
               strokeWidth={2}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
         </div>
       </header>
 
       {/* 背景 */}
-      {isOpen && (
-        <div
-          className="fixed inset-0 bg-black/40 z-40 md:hidden"
-          onClick={closeMenu}
-        />
-      )}
+      {isOpen && <div className="fixed inset-0 bg-black/40 z-40 md:hidden" onClick={closeMenu} />}
 
       {/* サイドメニュー */}
       <aside
@@ -80,11 +67,7 @@ export default function Header() {
       >
         <div className="flex items-center justify-between border-b px-4 py-4">
           {/* ロゴ */}
-          <Link
-            href="/"
-            onClick={closeMenu}
-            className="text-lg font-bold text-orange-500"
-          >
+          <Link href="/" onClick={closeMenu} className="text-lg font-bold text-orange-500">
             あだち大学フェス
           </Link>
 
@@ -98,11 +81,7 @@ export default function Header() {
               stroke="currentColor"
               strokeWidth={2}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 6l12 12M6 18L18 6"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 6l12 12M6 18L18 6" />
             </svg>
           </button>
         </div>
