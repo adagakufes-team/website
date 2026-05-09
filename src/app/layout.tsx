@@ -15,10 +15,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "あだち大学フェス",
-    openGraph: {
-      title: "あだち大学フェス",
-      images: ["/ogp.png"],
-    },
+  openGraph: {
+    title: "あだち大学フェス",
+    images: ["/ogp.png"],
+  },
 };
 
 export default function RootLayout({
@@ -27,16 +27,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="ja"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-
+    <html lang="ja" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
-        <Header/>
+        <Header />
         {children}
       </body>
-
     </html>
   );
 }

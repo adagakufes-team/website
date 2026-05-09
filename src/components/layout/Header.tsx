@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-
 const navItems = [
   { label: "あだち大学フェスとは", href: "#about" },
   { label: "出展団体", href: "#booths" },
@@ -21,7 +20,6 @@ export default function Header() {
     <>
       <header className="sticky top-0 z-50 bg-orange-400 text-white shadow-md">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 md:px-6">
-          
           {/* ロゴ */}
           <Link href="/" onClick={closeMenu} className="text-xl font-bold">
             <Image
@@ -43,11 +41,7 @@ export default function Header() {
           </nav>
 
           {/* ハンバーガー（SVG） */}
-          <button
-            onClick={() => setIsOpen(true)}
-            className="md:hidden"
-            aria-label="メニューを開く"
-          >
+          <button onClick={() => setIsOpen(true)} className="md:hidden" aria-label="メニューを開く">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-8 w-8"
@@ -56,23 +50,14 @@ export default function Header() {
               stroke="currentColor"
               strokeWidth={2}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
         </div>
       </header>
 
       {/* 背景 */}
-      {isOpen && (
-        <div
-          className="fixed inset-0 bg-black/40 z-40 md:hidden"
-          onClick={closeMenu}
-        />
-      )}
+      {isOpen && <div className="fixed inset-0 bg-black/40 z-40 md:hidden" onClick={closeMenu} />}
 
       {/* サイドメニュー */}
       <aside
@@ -81,13 +66,8 @@ export default function Header() {
         }`}
       >
         <div className="flex items-center justify-between border-b px-4 py-4">
-          
           {/* ロゴ */}
-          <Link
-            href="/"
-            onClick={closeMenu}
-            className="text-lg font-bold text-orange-500"
-          >
+          <Link href="/" onClick={closeMenu} className="text-lg font-bold text-orange-500">
             <Image
               src="/logo/logo-horizontal.png"
               alt="あだち大学フェス"
@@ -107,11 +87,7 @@ export default function Header() {
               stroke="currentColor"
               strokeWidth={2}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 6l12 12M6 18L18 6"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 6l12 12M6 18L18 6" />
             </svg>
           </button>
         </div>
