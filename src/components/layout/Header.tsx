@@ -41,7 +41,12 @@ export default function Header() {
           </nav>
 
           {/* ハンバーガー（SVG） */}
-          <button onClick={() => setIsOpen(true)} className="md:hidden" aria-label="メニューを開く">
+          <button
+            type="button"
+            onClick={() => setIsOpen((prev) => !prev)}
+            className="md:hidden p-2"
+            aria-label="メニューを開く"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-8 w-8"
