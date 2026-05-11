@@ -48,10 +48,14 @@ export default function Footer() {
           <p className="text-sm mb-4">最新情報はこちらからご覧ください</p>
 
           <div className="flex gap-4 text-2xl">
-            <a href="https://x.com/adagakufes" target="_blank">
+            <a href="https://x.com/adagakufes" target="_blank" rel="noopener noreferrer">
               <FaXTwitter />
             </a>
-            <a href="https://www.instagram.com/adagakufes" target="_blank">
+            <a
+              href="https://www.instagram.com/adagakufes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FaInstagram />
             </a>
           </div>
@@ -60,7 +64,7 @@ export default function Footer() {
 
       {/* 下のライン */}
       <div className="border-t border-gray-700 text-center py-4 text-sm">
-        © 2025 あだち大学フェス実行委員会
+        © {new Date().getFullYear()} あだち大学フェス実行委員会
       </div>
     </footer>
   );
