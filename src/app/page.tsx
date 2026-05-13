@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div className="flex min-h-screen items-center justify-center">
       <Image
-        src="/logo/logo-vertical.png"
+        src="/logo/logo-horizontal.png"
         alt="あだち大学フェス"
         width={480}
         height={480}
