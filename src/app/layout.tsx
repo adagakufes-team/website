@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   title: "あだち大学フェス",
   openGraph: {
     title: "あだち大学フェス",
-    images: ["/assets/images/ogp.png"],
+    images: ["/ogp.png"],
   },
 };
 
