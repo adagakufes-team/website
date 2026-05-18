@@ -13,7 +13,7 @@ export default function Visitors() {
 
         <div className="mx-auto mt-4 h-1 w-24 rounded-full bg-orange-400 md:w-32"></div>
 
-        <div className="mt-10 space-y-10 text-lg leading-relaxed npmtext-gray-900 md:text-2xl">
+        <div className="mt-10 space-y-10 text-lg leading-relaxed text-gray-900 md:text-2xl">
           <div>
             <h3 className="text-2xl font-bold md:text-3xl">場所</h3>
 
@@ -30,6 +30,8 @@ export default function Visitors() {
             <button
               type="button"
               onClick={() => setIsAccessOpen((prev) => !prev)}
+              aria-expanded={isAccessOpen}
+              aria-controls="access"
               className="rounded-xl border-2 border-orange-500 bg-white px-6 py-4 text-center font-bold text-orange-600 transition hover:bg-orange-50"
             >
               電車でお越しの方はこちら
