@@ -1,10 +1,4 @@
-"use client";
-
 export default function Leaflet() {
-  const handleClick = () => {
-    alert("準備中です");
-  };
-
   return (
     <section id="leaflet" className="px-4 py-10 md:px-8 md:py-16">
       <div className="mx-auto max-w-7xl rounded-3xl border-2 border-orange-500 bg-[#f3f3f3] px-6 py-10 md:px-16 md:py-14 text-center">
@@ -23,10 +17,10 @@ export default function Leaflet() {
         {/* ボタン */}
         <div className="mt-10">
           <button
-            onClick={handleClick}
+            disabled
             className="rounded-xl border-2 border-orange-500 px-8 py-4 text-xl font-bold text-orange-500 transition hover:bg-orange-50 md:text-2xl"
           >
-            リーフレットはこちら →
+            リーフレットはこちら(準備中)
           </button>
         </div>
       </div>
