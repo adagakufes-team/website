@@ -17,9 +17,12 @@ export default function About() {
 
         {/* ボタン */}
         <div className="mt-10">
-          <button className="rounded-xl border-2 border-orange-500 px-6 py-3 text-xl font-bold text-orange-500 transition hover:bg-orange-500 hover:text-white md:px-8 md:py-4 md:text-2xl">
+          <a
+            href="#exhibitors"
+            className="rounded-xl border-2 border-orange-500 px-6 py-3 text-xl font-bold text-orange-500 transition hover:bg-orange-500 hover:text-white md:px-8 md:py-4 md:text-2xl"
+          >
             出展団体一覧 ↓
-          </button>
+          </a>
         </div>
       </div>
     </section>
