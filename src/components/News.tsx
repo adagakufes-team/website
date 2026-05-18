@@ -1,15 +1,21 @@
-"use client";
-
 const newsItems = [
   {
+    id: 4,
+    date: "2026年5月",
+    text: "月が同じ時用のテスト",
+  },
+  {
+    id: 3,
     date: "2026年5月",
     text: "新ウェブサイト公開しました",
   },
   {
+    id: 2,
     date: "2025年8月",
     text: "最新情報は各種SNSからご覧ください",
   },
   {
+    id: 1,
     date: "2025年7月",
     text: "あだち大学フェス公式サイトを公開しました。",
   },
@@ -26,7 +32,7 @@ export default function News() {
 
         <div className="space-y-4">
           {newsItems.map((news) => (
-            <div key={news.date} className="border-l-4 border-orange-200 pl-5">
+            <div key={news.id} className="border-l-4 border-orange-200 pl-5">
               <p className="text-gray-500">{news.date}</p>
               <p className="text-lg text-gray-900">{news.text}</p>
             </div>
