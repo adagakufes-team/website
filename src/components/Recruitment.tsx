@@ -1,9 +1,9 @@
 "use client";
 
+import { useState } from "react";
+
 export default function Recruitment() {
-  const handlePdfClick = () => {
-    alert("企画案PDFは現在準備中です。しばらくお待ちください。");
-  };
+  const [showMessage, setShowMessage] = useState(false);
 
   return (
     <section id="recruitment" className="px-4 py-10 md:px-8 md:py-16">
@@ -32,11 +32,17 @@ export default function Recruitment() {
           <div className="pt-6">
             <button
               type="button"
-              onClick={handlePdfClick}
+              onClick={() => setShowMessage(true)}
               className="rounded-full bg-orange-500 px-8 py-3 text-lg font-bold text-white transition hover:bg-orange-600 active:scale-95 md:text-xl"
             >
-              企画案を見る
+              企画案はこちら(準備中)
             </button>
+
+            {showMessage && (
+              <p className="mt-4 text-base font-semibold text-orange-600 md:text-lg">
+                企画案PDFは現在準備中です。しばらくお待ちください。
+              </p>
+            )}
           </div>
         </div>
       </div>
