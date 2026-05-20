@@ -35,7 +35,7 @@ export default function Recruitment() {
               onClick={() => setShowMessage(true)}
               className="rounded-full bg-orange-500 px-8 py-3 text-lg font-bold text-white transition hover:bg-orange-600 active:scale-95 md:text-xl"
             >
-              企画案はこちら(準備中)
+              企画案はこちら
             </button>
 
             {showMessage && (
