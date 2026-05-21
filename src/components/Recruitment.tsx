@@ -6,22 +6,22 @@ export default function Recruitment() {
   const [showMessage, setShowMessage] = useState(false);
 
   return (
-    <section id="recruitment" className="px-4 py-10 md:px-8 md:py-16">
-      <div className="mx-auto max-w-7xl rounded-3xl border-2 border-orange-500 bg-[#f8f8f8] px-6 py-10 text-center md:px-16 md:py-14">
-        <h2 className="text-4xl font-bold text-gray-900 md:text-6xl">出展団体募集</h2>
+    <section id="recruitment" className="px-4 py-2 md:px-8 md:py-4">
+      <div className="mx-auto max-w-7xl rounded-3xl border-2 border-orange-500 bg-[#f8f8f8] px-6 py-10 text-center md:px-10 md:py-8">
+        {/* タイトル */}
+        <h2 className="text-2xl font-bold text-gray-900 md:text-3xl">出展団体募集</h2>
 
+        {/* 下線 */}
         <div className="mx-auto mt-4 h-1 w-24 rounded-full bg-orange-400 md:w-32"></div>
 
-        <div className="mx-auto mt-8 max-w-4xl space-y-4 text-lg leading-relaxed text-gray-900 md:text-2xl">
-          <p>
+        {/* 本文 */}
+        <div className="mx-auto mt-6 max-w-6xl space-y-4 text-left text-base leading-relaxed text-gray-900 md:text-lg">
+          <p className="indent-4">
             現在、あだち大学フェスに
             <span className="font-bold text-orange-600">出展していただける団体様</span>
-            を募集しています！
+            を募集しています！（足立5大学の団体様のみ）
           </p>
-
-          <p>（足立5大学の団体様のみ）</p>
-
-          <p>
+          <p className="indent-4">
             ご興味のある団体様は、
             <span className="font-bold">
               このWebページの一番下にある あだち大学フェスのメールアドレス
@@ -29,11 +29,12 @@ export default function Recruitment() {
             までご連絡ください。
           </p>
 
-          <div className="pt-6">
+          {/* ボタン */}
+          <div className="pt-4 text-center">
             <button
               type="button"
               onClick={() => setShowMessage(true)}
-              className="rounded-full bg-orange-500 px-8 py-3 text-lg font-bold text-white transition hover:bg-orange-600 active:scale-95 md:text-xl"
+              className="rounded-full bg-orange-500 px-6 py-3 text-base font-bold text-white transition hover:bg-orange-600 active:scale-95 md:text-lg"
             >
               企画案はこちら
             </button>
