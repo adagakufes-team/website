@@ -1,16 +1,36 @@
 import Image from "next/image";
+import Recruitment from "@/components/Recruitment";
+import News from "@/components/News";
+import About from "@/components/About";
+import Leaflet from "@/components/Leaflet";
+import Exhibitors from "@/components/Exhibitors";
+import Visitors from "@/components/visitors/Visitors";
+import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center">
-      <Image
-        src="/logo/logo-horizontal.png"
-        alt="あだち大学フェス"
-        width={480}
-        height={480}
-        className="w-full max-w-md"
-        priority
-      />
-    </div>
+    <main>
+      <div className="flex min-h-screen flex-col items-center justify-center  text-center">
+        <Image
+          src="/logo/logo-horizontal.png"
+          alt="あだち大学フェス"
+          width={1400}
+          height={600}
+          className="w-full max-w-6xl"
+          priority
+        />
+        <div className="mt-8">
+          <p className="text-4xl font-bold md:text-3xl">in 東京電機大学</p>
+          <p className="mt-2 text-4xl font-bold md:text-3xl">8/28(金) 10:00～15:00</p>
+        </div>
+      </div>
+      <Recruitment />
+      <News />
+      <About />
+      <Leaflet />
+      <Exhibitors />
+      <Visitors />
+      <Contact />
+    </main>
   );
 }

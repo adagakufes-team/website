@@ -7,17 +7,21 @@ export default function Visitors() {
   const [isAccessOpen, setIsAccessOpen] = useState(false);
 
   return (
-    <section id="visitors" className="px-4 py-10 md:px-8 md:py-16">
-      <div className="mx-auto max-w-7xl rounded-3xl border-2 border-orange-500 bg-[#f8f8f8] px-6 py-10 md:px-16 md:py-14">
-        <h2 className="text-center text-4xl font-bold text-gray-900 md:text-6xl">ご来場の方へ</h2>
+    <section id="visitors" className="px-4 py-2 md:px-8 md:py-4">
+      <div className="mx-auto max-w-7xl rounded-3xl border-2 border-orange-500 bg-[#f8f8f8] px-6 py-10 md:px-10 md:py-8">
+        {/* タイトル */}
+        <h2 className="text-center text-2xl font-bold text-gray-900 md:text-3xl">ご来場の方へ</h2>
 
+        {/* 下線 */}
         <div className="mx-auto mt-4 h-1 w-24 rounded-full bg-orange-400 md:w-32"></div>
 
-        <div className="mt-10 space-y-10 text-lg leading-relaxed text-gray-900 md:text-2xl">
+        {/* 本文 */}
+        <div className="mt-8 space-y-8 text-base leading-relaxed text-gray-900 md:text-lg">
+          {/* 場所 */}
           <div>
-            <h3 className="text-2xl font-bold md:text-3xl">場所</h3>
+            <h3 className="text-xl font-bold md:text-2xl">場所</h3>
 
-            <p className="mt-4">
+            <p className="mt-3 indent-4 text-left">
               〒120-8551
               <br />
               東京都足立区千住旭町5番
@@ -26,31 +30,35 @@ export default function Visitors() {
             </p>
           </div>
 
+          {/* ボタン */}
           <div className="flex flex-col gap-4">
             <button
               type="button"
               onClick={() => setIsAccessOpen((prev) => !prev)}
               aria-expanded={isAccessOpen}
               aria-controls="access"
-              className="rounded-xl border-2 border-orange-500 bg-white px-6 py-4 text-center font-bold text-orange-600 transition hover:bg-orange-50"
+              className="rounded-xl border-2 border-orange-500 bg-white px-5 py-3 text-center text-base font-bold text-orange-600 transition hover:bg-orange-50 md:text-lg"
             >
               電車でお越しの方はこちら
             </button>
+
             {isAccessOpen && <Access />}
+
             <a
               href="https://www.dendai.ac.jp/access/e5vdec0000000c6m-att/bf-campusmap_tokyosenju.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-xl border-2 border-orange-500 bg-white px-6 py-4 text-center font-bold text-orange-600 transition hover:bg-orange-50"
+              className="rounded-xl border-2 border-orange-500 bg-white px-5 py-3 text-center text-base font-bold text-orange-600 transition hover:bg-orange-50 md:text-lg"
             >
               バリアフリー設備について
             </a>
           </div>
 
+          {/* お願い */}
           <div>
-            <h3 className="text-2xl font-bold md:text-3xl">ご来場時のお願い</h3>
+            <h3 className="text-xl font-bold md:text-2xl">ご来場時のお願い</h3>
 
-            <ul className="mt-4 list-disc space-y-3 pl-6">
+            <ul className="mt-3 list-disc space-y-2 pl-6 text-left">
               <li>
                 構内には自動販売機がございます。大学周辺にはコンビニエンスストアがございます。
               </li>
