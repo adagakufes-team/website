@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Recruitment from "@/components/Recruitment";
-import News from "@/components/News";
+import News from "@/components/News/News";
 import About from "@/components/About";
 import Leaflet from "@/components/Leaflet";
 import Exhibitors from "@/components/Exhibitors";
@@ -10,7 +10,7 @@ import Contact from "@/components/Contact";
 export default function Home() {
   return (
     <main>
-      <div className="flex min-h-screen flex-col items-center justify-center  text-center">
+      <div className="flex min-h-screen flex-col items-center justify-center  text-center bg-[#f8f3e8]">
         <Image
           src="/logo/logo-horizontal.png"
           alt="あだち大学フェス"
@@ -24,8 +24,8 @@ export default function Home() {
           <p className="mt-2 text-4xl font-bold md:text-3xl">8/28(金) 10:00～15:00</p>
         </div>
       </div>
-      <Recruitment />
       <News />
+      <Recruitment />
       <About />
       <Leaflet />
       <Exhibitors />
