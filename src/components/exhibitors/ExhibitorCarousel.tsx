@@ -31,7 +31,8 @@ const cards: CarouselCard[] = [
     color: "bg-blue-100",
     borderColor: "border-blue-300",
     accentColor: "bg-blue-600",
-    description: "現在出展してくださる東京電機大学の団体様をお待ちしております。",
+    description:
+      "現在出展してくださる東京電機大学の団体様をお待ちしております。",
   },
   {
     id: "geidai",
@@ -40,7 +41,8 @@ const cards: CarouselCard[] = [
     color: "bg-stone-200",
     borderColor: "border-stone-400",
     accentColor: "bg-stone-700",
-    description: "現在出展してくださる東京藝術大学の団体様をお待ちしております。",
+    description:
+      "現在出展してくださる東京藝術大学の団体様をお待ちしております。",
   },
   {
     id: "mirai",
@@ -49,7 +51,8 @@ const cards: CarouselCard[] = [
     color: "bg-red-100",
     borderColor: "border-red-300",
     accentColor: "bg-red-500",
-    description: "現在出展してくださる東京未来大学の団体様をお待ちしております。",
+    description:
+      "現在出展してくださる東京未来大学の団体様をお待ちしております。",
   },
   {
     id: "bunkyo",
@@ -58,7 +61,8 @@ const cards: CarouselCard[] = [
     color: "bg-yellow-100",
     borderColor: "border-yellow-300",
     accentColor: "bg-yellow-600",
-    description: "現在出展してくださる文教大学の団体様をお待ちしております。",
+    description:
+      "現在出展してくださる文教大学の団体様をお待ちしております。",
   },
   {
     id: "teika",
@@ -67,7 +71,8 @@ const cards: CarouselCard[] = [
     color: "bg-slate-200",
     borderColor: "border-slate-300",
     accentColor: "bg-slate-700",
-    description: "現在出展してくださる帝京科学大学の団体様をお待ちしております。",
+    description:
+      "現在出展してくださる帝京科学大学の団体様をお待ちしております。",
   },
   {
     id: "plan",
@@ -85,6 +90,10 @@ export default function ExhibitorCarousel() {
   const [activeIndex, setActiveIndex] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
   const [isPressed, setIsPressed] = useState(false);
+
+  // 追加
+  const [dragOffset, setDragOffset] = useState(0);
+
   const startXRef = useRef<number | null>(null);
 
   const goNext = () => {
@@ -95,12 +104,49 @@ export default function ExhibitorCarousel() {
     setActiveIndex((prev) => (prev - 1 + cards.length) % cards.length);
   };
 
-  const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
+  const handlePointerDown = (
+    event: React.PointerEvent<HTMLDivElement>
+  ) => {
     startXRef.current = event.clientX;
     setIsPressed(true);
   };
 
-  const handlePointerUp = (event: React.PointerEvent<HTMLDivElement>) => {
+  // 追加
+  const handlePointerMove = (
+    event: React.PointerEvent<HTMLDivElement>
+  ) => {
+    if (startXRef.current === null) return;
+
+    const diff = event.clientX - startXRef.current;
+
+    setDragOffset(diff);
+  };
+
+  // const handlePointerUp = (
+  //   event: React.PointerEvent<HTMLDivElement>
+  // ) => {
+  //   if (startXRef.current === null) {
+  //     setIsPressed(false);
+  //     return;
+  //   }
+
+  //   const diff = event.clientX - startXRef.current;
+
+  //   if (diff > 60) {
+  //     goPrev();
+  //   } else if (diff < -60) {
+  //     goNext();
+  //   }
+
+  //   startXRef.current = null;
+  //   setIsPressed(false);
+
+  //   // 元の位置へ戻す
+  //   setDragOffset(0);
+  // };
+  const handlePointerUp = (
+    event: React.PointerEvent<HTMLDivElement>
+  ) => {
     if (startXRef.current === null) {
       setIsPressed(false);
       return;
@@ -108,11 +154,35 @@ export default function ExhibitorCarousel() {
 
     const diff = event.clientX - startXRef.current;
 
-    if (diff > 40) goPrev();
-    if (diff < -40) goNext();
+    // スワイプ量に応じて複数枚移動
+    const threshold = 60;
+
+    if (Math.abs(diff) > threshold) {
+      // 何枚分動かすか計算
+      const moveCount = Math.min(
+        4,
+        Math.max(1, Math.floor(Math.abs(diff) / 120))
+      );
+
+      if (diff > 0) {
+        setActiveIndex((prev) => {
+          return (
+            (prev - moveCount + cards.length * 10) %
+            cards.length
+          );
+        });
+      } else {
+        setActiveIndex((prev) => {
+          return (prev + moveCount) % cards.length;
+        });
+      }
+    }
 
     startXRef.current = null;
     setIsPressed(false);
+
+    // 元の位置へ戻す
+    setDragOffset(0);
   };
 
   useEffect(() => {
@@ -154,10 +224,12 @@ export default function ExhibitorCarousel() {
       <div
         className="relative mx-auto h-full w-full max-w-6xl touch-pan-y select-none"
         onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
         onPointerCancel={() => {
           startXRef.current = null;
           setIsPressed(false);
+          setDragOffset(0);
         }}
       >
         {cards.map((card, index) => {
@@ -187,18 +259,22 @@ export default function ExhibitorCarousel() {
           } as const;
 
           const position = isMobile
-            ? (spPositions[String(offset) as keyof typeof spPositions] ?? {
-                x: 0,
-                y: -70,
-                scale: 0.6,
-                z: 0,
-              })
-            : (pcPositions[String(offset) as keyof typeof pcPositions] ?? {
-                x: 0,
-                y: -90,
-                scale: 0.7,
-                z: 0,
-              });
+            ? (spPositions[
+              String(offset) as keyof typeof spPositions
+            ] ?? {
+              x: 0,
+              y: -70,
+              scale: 0.6,
+              z: 0,
+            })
+            : (pcPositions[
+              String(offset) as keyof typeof pcPositions
+            ] ?? {
+              x: 0,
+              y: -90,
+              scale: 0.7,
+              z: 0,
+            });
 
           const isActive = offset === 0;
           const pressY = isActive && isPressed ? 8 : 0;
@@ -209,18 +285,26 @@ export default function ExhibitorCarousel() {
               href={card.href}
               target={card.isPdf ? "_blank" : undefined}
               rel={card.isPdf ? "noopener noreferrer" : undefined}
-              className={`absolute left-1/2 top-1/2 block transition-all duration-700 ease-in-out ${
-                isActive ? "pointer-events-auto" : "pointer-events-none"
-              }`}
+              className={`absolute left-1/2 top-1/2 block transition-all duration-700 ease-in-out ${isActive
+                  ? "pointer-events-auto"
+                  : "pointer-events-none"
+                }`}
               style={{
                 zIndex: position.z,
                 opacity: 1,
                 filter: isActive ? "none" : "brightness(0.88)",
                 transform: `
                   translate(-50%, -50%)
-                  translateX(${position.x}px)
+                  translateX(${position.x +
+                  (isActive
+                    ? dragOffset
+                    : dragOffset * 0.35)
+                  }px)
                   translateY(${position.y + pressY}px)
-                  scale(${isActive && isPressed ? position.scale * 0.98 : position.scale})
+                  scale(${isActive && isPressed
+                    ? position.scale * 0.98
+                    : position.scale
+                  })
                 `,
               }}
             >
@@ -232,7 +316,9 @@ export default function ExhibitorCarousel() {
                     {card.name}
                   </h3>
 
-                  <div className={`mx-auto mt-3 h-0.5 w-20 md:mt-4 md:w-32 ${card.accentColor}`} />
+                  <div
+                    className={`mx-auto mt-3 h-0.5 w-20 md:mt-4 md:w-32 ${card.accentColor}`}
+                  />
                 </div>
 
                 <div className="rounded-2xl border-2 border-gray-900/80 bg-white/70 px-3 py-4 text-[11px] leading-relaxed md:px-5 md:py-6 md:text-base">
@@ -244,7 +330,9 @@ export default function ExhibitorCarousel() {
                     View
                   </p>
 
-                  <div className={`ml-auto mt-2 h-0.5 w-16 md:w-28 ${card.accentColor}`} />
+                  <div
+                    className={`ml-auto mt-2 h-0.5 w-16 md:w-28 ${card.accentColor}`}
+                  />
                 </div>
               </div>
             </Link>
