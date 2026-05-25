@@ -4,16 +4,6 @@ const newsItems = [
     date: "2026年5月",
     text: "新ウェブサイト公開しました",
   },
-  {
-    id: 202508,
-    date: "2025年8月",
-    text: "最新情報は各種SNSからご覧ください",
-  },
-  {
-    id: 202507,
-    date: "2025年7月",
-    text: "あだち大学フェス公式サイトを公開しました。",
-  },
 ];
 
 export default function News() {
