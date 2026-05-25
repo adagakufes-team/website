@@ -26,7 +26,7 @@ export default function Recruitment() {
           {/* ボタン */}
           <div className="pt-4 text-center">
             <a
-              href="/pdf/あだち大学フェス募集案内.pdf"
+              href="/pdf/あだち大学フェス_団体募集案内.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block rounded-full bg-orange-500 px-6 py-3 text-base font-bold text-white transition hover:bg-orange-600 active:scale-95 md:text-lg"
