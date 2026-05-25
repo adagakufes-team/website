@@ -16,9 +16,9 @@ export default function Recruitment() {
             を募集しています！（足立5大学の団体様のみ）
           </p>
           <p className="indent-4">
-            ご興味のある団体様は、
+            ご興味のある団体様は、企画案をご覧の上、
             <span className="font-bold">
-              このWebページの一番下にある あだち大学フェスのメールアドレス
+              あだち大学フェス公式メールアドレス(adagakufes@gmail.com)
             </span>
             までご連絡ください。
           </p>
