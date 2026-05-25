@@ -3,7 +3,7 @@ import { FaXTwitter, FaInstagram } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white mt-20">
+    <footer className="bg-gray-900 text-white">
       <div className="max-w-6xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-8">
         {/* 左：団体情報 */}
         <div>
