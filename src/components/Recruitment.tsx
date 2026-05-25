@@ -13,7 +13,7 @@ export default function Recruitment() {
           <p className="indent-4">
             現在、あだち大学フェスに
             <span className="font-bold text-orange-600">出展していただける団体様</span>
-            を募集しています！（足立5大学の団体様のみ）
+            を募集しています！（足立5大学（東京藝術大学・東京未来大学・帝京科学大学・東京電機大学・文教大学）の団体様のみ）
           </p>
           <p className="indent-4">
             ご興味のある団体様は、募集案内をご覧の上、

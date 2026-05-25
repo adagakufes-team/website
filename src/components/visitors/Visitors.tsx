@@ -59,9 +59,8 @@ export default function Visitors() {
             <h3 className="text-xl font-bold md:text-2xl">ご来場時のお願い</h3>
 
             <ul className="mt-3 list-disc space-y-2 pl-6 text-left">
-              <li>
-                構内には自動販売機がございます。大学周辺にはコンビニエンスストアがございます。
-              </li>
+              <li>大学構内には自動販売機がございます。</li>
+              <li>大学周辺にはコンビニエンスストアがございます。</li>
               <li>大学構内は全面禁煙です。</li>
               <li>お酒の持ち込み、飲酒はご遠慮ください。</li>
             </ul>
