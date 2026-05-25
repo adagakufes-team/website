@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { FaXTwitter, FaInstagram } from "react-icons/fa6";
 
 export default function Footer() {
@@ -22,22 +21,19 @@ export default function Footer() {
           <h2 className="text-lg font-bold mb-4">サイトマップ</h2>
           <ul className="space-y-2 text-sm">
             <li>
-              <Link href="/news">お知らせ</Link>
+              <a href="#news">お知らせ</a>
             </li>
             <li>
-              <Link href="/about">あだち大学フェスとは</Link>
+              <a href="#about">あだち大学フェスとは</a>
             </li>
             <li>
-              <Link href="/booths">出展団体</Link>
+              <a href="#exhibitors">出展団体</a>
             </li>
             <li>
-              <Link href="/sponsor">協賛・地域連携</Link>
+              <a href="#visitors">ご来場の方へ</a>
             </li>
             <li>
-              <Link href="/visitor">ご来場の方へ</Link>
-            </li>
-            <li>
-              <Link href="/contact">お問い合わせ</Link>
+              <a href="#contact">お問い合わせ</a>
             </li>
           </ul>
         </div>

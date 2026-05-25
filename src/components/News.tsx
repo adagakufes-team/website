@@ -18,9 +18,9 @@ const newsItems = [
 
 export default function News() {
   return (
-    <section className="bg-white px-6 py-16">
+    <section id="news" className="bg-white px-6 py-16">
       <div className="mx-auto max-w-6xl">
-        <h2 className="mb-10 text-center text-3xl font-bold">
+        <h2 className="mb-10 text-center text-3xl font-bold text-gray-900">
           お知らせ
           <span className="mx-auto mt-2 block h-1 w-24 rounded bg-orange-400" />
         </h2>

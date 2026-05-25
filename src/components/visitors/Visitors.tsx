@@ -31,28 +31,28 @@ export default function Visitors() {
           </div>
 
           {/* ボタン */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col items-center gap-4 md:flex-row md:justify-center">
             <button
               type="button"
               onClick={() => setIsAccessOpen((prev) => !prev)}
               aria-expanded={isAccessOpen}
               aria-controls="access"
-              className="rounded-xl border-2 border-orange-500 bg-white px-5 py-3 text-center text-base font-bold text-orange-600 transition hover:bg-orange-50 md:text-lg"
+              className="rounded-xl border-2 border-orange-500 px-6 py-3 text-xl font-bold text-orange-500 transition hover:bg-orange-50 md:px-6 md:py-3 md:text-lg"
             >
               電車でお越しの方はこちら
             </button>
-
-            {isAccessOpen && <Access />}
 
             <a
               href="https://www.dendai.ac.jp/access/e5vdec0000000c6m-att/bf-campusmap_tokyosenju.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-xl border-2 border-orange-500 bg-white px-5 py-3 text-center text-base font-bold text-orange-600 transition hover:bg-orange-50 md:text-lg"
+              className="rounded-xl border-2 border-orange-500 px-6 py-3 text-xl font-bold text-orange-500 transition hover:bg-orange-50 md:px-6 md:py-3 md:text-lg"
             >
               バリアフリー設備について
             </a>
           </div>
+
+          {isAccessOpen && <Access />}
 
           {/* お願い */}
           <div>
