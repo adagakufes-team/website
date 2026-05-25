@@ -1,38 +1,54 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 const navItems = [
   { label: "あだち大学フェスとは", href: "#about" },
-  { label: "出展団体", href: "#exhibitors" },
   { label: "ご来場の方へ", href: "#visitors" },
+  { label: "出展団体", href: "#exhibitors" },
   { label: "お問い合わせ", href: "#contact" },
 ];
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const closeMenu = () => setIsOpen(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
-      <header className="sticky top-0 z-50 bg-orange-400 text-white shadow-md">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 md:px-6">
+      <header
+        className={`sticky top-0 z-50 text-white transition-all duration-300 ${
+          isScrolled ? "bg-orange-400/80 shadow-md backdrop-blur" : "bg-transparent shadow-none"
+        }`}
+      >
+        <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-4 md:h-18 md:px-6">
           {/* ロゴ */}
-          <Link href="/" onClick={closeMenu} className="text-xl font-bold">
+          <Link href="/" onClick={closeMenu}>
             <Image
               src="/logo/logo-horizontal.png"
               alt="あだち大学フェス"
               width={200}
               height={40}
-              className="h-10 w-auto"
+              className="h-7 w-auto md:h-9"
             />
           </Link>
 
           {/* PCナビ */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden items-center gap-8 md:flex">
             {navItems.map((item) => (
               <a key={item.href} href={item.href} className="hover:opacity-80">
                 {item.label}
@@ -40,76 +56,51 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* ハンバーガー（SVG） */}
+          {/* ハンバーガー */}
           <button
             type="button"
             onClick={() => setIsOpen((prev) => !prev)}
-            className="md:hidden p-2"
+            className="p-2 md:hidden"
             aria-label="メニューを開く"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-8 w-8"
+              className="h-7 w-7 md:h-8 md:w-8"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
               strokeWidth={2}
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              {isOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 6l12 12M6 18L18 6" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              )}
             </svg>
           </button>
         </div>
       </header>
 
-      {/* 背景 */}
-      {isOpen && <div className="fixed inset-0 bg-black/40 z-40 md:hidden" onClick={closeMenu} />}
-
-      {/* サイドメニュー */}
-      <aside
-        className={`fixed top-0 right-0 z-50 h-full w-72 bg-white text-gray-800 shadow-xl transition-transform duration-300 md:hidden ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
-        <div className="flex items-center justify-between border-b px-4 py-4">
-          {/* ロゴ */}
-          <Link href="/" onClick={closeMenu} className="text-lg font-bold text-orange-500">
-            <Image
-              src="/logo/logo-horizontal.png"
-              alt="あだち大学フェス"
-              width={200}
-              height={50}
-              className="h-6 w-auto"
-            />
-          </Link>
-
-          {/* 閉じるボタン（SVG） */}
-          <button onClick={closeMenu} aria-label="閉じる">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-7 w-7"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 6l12 12M6 18L18 6" />
-            </svg>
-          </button>
+      {/* 背景 + メニュー */}
+      {isOpen && (
+        <div className="fixed inset-0 top-16 z-40 bg-black/40 md:hidden" onClick={closeMenu}>
+          <nav
+            className="bg-white px-5 py-2 text-gray-800 shadow-lg"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={closeMenu}
+                className="block border-b py-3 text-base hover:text-orange-500"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
         </div>
-
-        <nav className="flex flex-col p-4">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={closeMenu}
-              className="border-b py-4 hover:text-orange-500"
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
-      </aside>
+      )}
     </>
   );
 }

@@ -1,0 +1,147 @@
+"use client";
+
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { useState } from "react";
+import FadeIn from "@/components/FadeIn";
+
+type UniversityId = "all" | "teika" | "geidai" | "tdu" | "mirai" | "bunkyo";
+
+type University = {
+  id: UniversityId;
+  name: string;
+};
+
+const universities: University[] = [
+  { id: "all", name: "すべて" },
+  { id: "teika", name: "帝京科学大学" },
+  { id: "geidai", name: "東京藝術大学" },
+  { id: "tdu", name: "東京電機大学" },
+  { id: "mirai", name: "東京未来大学" },
+  { id: "bunkyo", name: "文教大学" },
+];
+
+type Exhibitor = {
+  id: number;
+  university: Exclude<UniversityId, "all">;
+  universityName: string;
+};
+
+const exhibitors: Exhibitor[] = [
+  { id: 1, university: "teika", universityName: "帝京科学大学" },
+  { id: 2, university: "geidai", universityName: "東京藝術大学" },
+  { id: 3, university: "tdu", universityName: "東京電機大学" },
+  { id: 4, university: "mirai", universityName: "東京未来大学" },
+  { id: 5, university: "bunkyo", universityName: "文教大学" },
+];
+
+export default function ExhibitorsPage() {
+  const searchParams = useSearchParams();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const universityParam = searchParams.get("university");
+
+  const selectedUniversity = universities.some((university) => university.id === universityParam)
+    ? (universityParam as UniversityId)
+    : "all";
+
+  const filteredExhibitors =
+    selectedUniversity === "all"
+      ? exhibitors
+      : exhibitors.filter((exhibitor) => exhibitor.university === selectedUniversity);
+
+  return (
+    <main className="min-h-screen bg-[#6f6f9f] px-6 py-24 text-white md:px-16">
+      <FadeIn>
+        <div className="mx-auto max-w-7xl">
+          <section className="grid gap-12 md:grid-cols-[300px_1fr]">
+            {/* 左 */}
+            <div>
+              <h1 className="text-4xl font-light md:text-6xl">出展団体</h1>
+
+              <div className="mt-10">
+                <div className="w-full border-2 border-white transition active:translate-y-1 active:bg-white/10">
+                  <div className="flex items-center">
+                    <Link
+                      href="/exhibitors?university=all"
+                      className={`flex flex-1 items-center justify-center gap-3 px-6 py-3 text-lg text-white transition hover:bg-white/10 active:translate-y-1 ${
+                        selectedUniversity === "all" ? "bg-white/10" : ""
+                      }`}
+                    >
+                      <span>すべて</span>
+                    </Link>
+
+                    <button
+                      type="button"
+                      onClick={() => setIsOpen((prev) => !prev)}
+                      className="px-5 py-3 text-lg text-white transition hover:bg-white/10 active:translate-y-1"
+                      aria-label="大学一覧を開く"
+                    >
+                      {isOpen ? "▽" : "△"}
+                    </button>
+                  </div>
+                </div>
+
+                <div
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                    isOpen ? "mt-5 max-h-96 opacity-100" : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <div className="space-y-1">
+                    {universities
+                      .filter((university) => university.id !== "all")
+                      .map((university) => (
+                        <Link
+                          key={university.id}
+                          href={`/exhibitors?university=${university.id}`}
+                          className={`block border-b border-white px-2 py-3 text-lg transition hover:opacity-70 active:translate-y-1 ${
+                            selectedUniversity === university.id ? "font-semibold" : ""
+                          }`}
+                        >
+                          {university.name}
+                        </Link>
+                      ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 右 */}
+            <div>
+              <p className="max-w-3xl text-base leading-relaxed md:text-lg">
+                現在、あだち大学フェスに出展していただける団体様を
+                募集しています！（足立5大学の団体様のみ）
+                <br />
+                ご興味のある団体様は、このWebページの一番下にある
+                あだち大学フェスのメールアドレスまでご連絡ください。
+              </p>
+
+              <a
+                href="/pdf/adagaku-plan.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-20 block w-full max-w-sm border-2 border-white px-8 py-3 text-center text-lg text-white transition hover:bg-white/10 active:translate-y-1 md:ml-auto"
+              >
+                企画案はこちら
+              </a>
+
+              <div className="mt-14 space-y-8">
+                {filteredExhibitors.map((exhibitor) => (
+                  <FadeIn key={`${selectedUniversity}-${exhibitor.id}`}>
+                    <div className="max-w-3xl">
+                      <h2 className="text-xl font-normal">{exhibitor.universityName}</h2>
+
+                      <div className="mt-3 h-px w-full bg-white" />
+
+                      <p className="mt-5 text-base">準備中です</p>
+                    </div>
+                  </FadeIn>
+                ))}
+              </div>
+            </div>
+          </section>
+        </div>
+      </FadeIn>
+    </main>
+  );
+}
