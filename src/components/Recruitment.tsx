@@ -16,7 +16,7 @@ export default function Recruitment() {
             を募集しています！（足立5大学の団体様のみ）
           </p>
           <p className="indent-4">
-            ご興味のある団体様は、企画案をご覧の上、
+            ご興味のある団体様は、募集案内をご覧の上、
             <span className="font-bold">
               あだち大学フェス公式メールアドレス(adagakufes@gmail.com)
             </span>
@@ -26,12 +26,12 @@ export default function Recruitment() {
           {/* ボタン */}
           <div className="pt-4 text-center">
             <a
-              href="/pdf/あだち大学フェス企画案.pdf"
+              href="/pdf/あだち大学フェス募集案内.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block rounded-full bg-orange-500 px-6 py-3 text-base font-bold text-white transition hover:bg-orange-600 active:scale-95 md:text-lg"
             >
-              企画案はこちら
+              募集案内はこちら
             </a>
           </div>
         </div>
