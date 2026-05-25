@@ -15,8 +15,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://adagakufes.com"),
   title: "あだち大学フェス",
+  description: "足立区5大学合同学園祭 あだち大学フェス公式サイト",
   openGraph: {
+    title: "あだち大学フェス",
+    images: ["/ogp.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
     title: "あだち大学フェス",
     images: ["/ogp.png"],
   },
