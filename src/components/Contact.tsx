@@ -8,7 +8,7 @@ export default function Contact() {
         <FadeIn>
           <div>
             <h2 className="text-3xl font-bold text-black/90 md:text-5xl">お問い合わせ</h2>
-            <div className="mt-3 h-0.5 w-full max-w-[320px] bg-red-500 md:max-w-[520px]" />
+            <div className="mt-3 h-0.5 w-full max-w-[320px] bg-orange-400 md:max-w-[520px]" />
           </div>
         </FadeIn>
 

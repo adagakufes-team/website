@@ -17,7 +17,7 @@ export default function Visitors() {
             ご来場のお客様へ
           </h2>
 
-          <div className="mt-4 ml-auto h-0.5 w-48 bg-orange-400 md:w-120"></div>
+          <div className="mt-4 ml-auto h-0.5 max-w-[320px] bg-orange-400 lg:max-w-[520px]"></div>
         </FadeIn>
 
         <div className="mt-12 grid gap-10 md:mt-20 md:grid-cols-2 md:items-start">

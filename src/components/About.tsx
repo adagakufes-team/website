@@ -8,7 +8,7 @@ export default function About() {
         <FadeIn>
           <div>
             <h2 className="text-4xl font-light text-black/90 lg:text-6xl">About</h2>
-            <div className="mt-3 h-0.5 w-full max-w-[320px] bg-orange-500 lg:max-w-[520px]" />
+            <div className="mt-3 h-0.5 w-full max-w-[320px] bg-orange-400 lg:max-w-[520px]" />
           </div>
         </FadeIn>
 
