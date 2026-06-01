@@ -7,7 +7,7 @@ const newsTopics = [
     id: 202605,
     date: "2026.5",
     title: "第2回あだち大学フェス開催決定",
-    image: "/News/2026.5.png",
+    image: "/news/2026.5.png",
     text: (
       <>
         第1回の反響を受け、第2回あだち大学フェスの開催が決定しました。
@@ -24,7 +24,7 @@ const newsTopics = [
     id: 20250828,
     date: "2025.8.28",
     title: "第1回あだち大学フェス開催",
-    image: "/News/2025.8.jpg",
+    image: "/news/2025.8.jpg",
     text: (
       <>
         東京電機大学北千住キャンパス1号館1階にて、
@@ -37,11 +37,11 @@ const newsTopics = [
 
 export default function NewsPage() {
   return (
-    <main className="min-h-screen bg-[#432631] px-4 py-16 text-white/80">
+    <main className="min-h-screen bg-[#fffdf8] px-4 py-16 text-black/80">
       <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-[240px_1fr]">
         {/* 左 */}
         <aside className="animate-fade-up">
-          <h1 className="font-serif text-5xl leading-relaxed text-white/70 md:text-6xl">
+          <h1 className="font-serif text-5xl leading-relaxed text-orange-500/80 md:text-6xl">
             News
             <br />
             Topics
@@ -52,7 +52,7 @@ export default function NewsPage() {
               href="https://x.com/adagakufes"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-16 w-16 items-center justify-center rounded-xl bg-white/10 text-3xl text-white transition hover:bg-white/20"
+              className="flex h-16 w-16 items-center justify-center rounded-xl bg-orange-400/70 text-3xl text-white transition hover:bg-orange-500"
             >
               <FaXTwitter />
             </a>
@@ -61,7 +61,7 @@ export default function NewsPage() {
               href="https://www.instagram.com/adagakufes"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-16 w-16 items-center justify-center rounded-xl bg-white/10 text-3xl text-white transition hover:bg-white/20"
+              className="flex h-16 w-16 items-center justify-center rounded-xl bg-orange-400/70 text-3xl text-white transition hover:bg-orange-500"
             >
               <FaInstagram />
             </a>
@@ -69,27 +69,31 @@ export default function NewsPage() {
         </aside>
 
         {/* 右 */}
-        <section className="space-y-16">
+        <section className="space-y-12">
           {newsTopics.map((topic) => (
-            <article key={topic.id} className="animate-fade-up">
-              <p className="text-xl font-light text-white/65 underline decoration-white/40">
+            <article
+              id={String(topic.id)}
+              key={topic.id}
+              className="animate-fade-up scroll-mt-28 rounded-3xl border border-orange-100 bg-white p-6 shadow-sm transition hover:shadow-md md:p-8"
+            >
+              <p className="text-lg font-light text-orange-500 underline decoration-orange-300">
                 {topic.date}
               </p>
 
-              <h2 className="mt-5 text-3xl font-light leading-relaxed md:text-4xl">
+              <h2 className="mt-4 text-3xl font-bold leading-relaxed text-gray-900 md:text-4xl">
                 {topic.title}
               </h2>
 
-              <div className="mt-6 grid gap-6 md:grid-cols-[240px_1fr]">
+              <div className="mt-8 grid gap-8 md:grid-cols-[280px_1fr]">
                 <Image
                   src={topic.image}
                   alt={topic.title}
                   width={480}
                   height={320}
-                  className="h-auto w-full rounded-lg object-cover"
+                  className="h-auto w-full rounded-2xl object-cover shadow-sm"
                 />
 
-                <p className="text-lg leading-relaxed text-white/90 md:text-xl">{topic.text}</p>
+                <p className="text-lg leading-relaxed text-gray-700 md:text-xl">{topic.text}</p>
               </div>
             </article>
           ))}
