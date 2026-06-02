@@ -50,7 +50,6 @@ export default function Visitors() {
               </div>
             </FadeIn>
           </div>
-
           {/* 右側 */}
           <div>
             <FadeIn>
