@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { FaPause, FaPlay } from "react-icons/fa";
 
 type CarouselCard = {
   id: string;
@@ -84,88 +85,24 @@ const cards: CarouselCard[] = [
 export default function ExhibitorCarousel() {
   const [activeIndex, setActiveIndex] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
-  const [isPressed, setIsPressed] = useState(false);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-  // 追加
-  const [dragOffset, setDragOffset] = useState(0);
-
-  const startXRef = useRef<number | null>(null);
-
-  const goNext = () => {
+  const goNext = useCallback(() => {
     setActiveIndex((prev) => (prev + 1) % cards.length);
-  };
+  }, []);
 
-  const goPrev = () => {
+  const goPrev = useCallback(() => {
     setActiveIndex((prev) => (prev - 1 + cards.length) % cards.length);
+  }, []);
+
+  const handlePrevClick = () => {
+    setIsAutoPlaying(false);
+    goPrev();
   };
 
-  const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
-    startXRef.current = event.clientX;
-    setIsPressed(true);
-  };
-
-  // 追加
-  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
-    if (startXRef.current === null) return;
-
-    const diff = event.clientX - startXRef.current;
-
-    setDragOffset(diff);
-  };
-
-  // const handlePointerUp = (
-  //   event: React.PointerEvent<HTMLDivElement>
-  // ) => {
-  //   if (startXRef.current === null) {
-  //     setIsPressed(false);
-  //     return;
-  //   }
-
-  //   const diff = event.clientX - startXRef.current;
-
-  //   if (diff > 60) {
-  //     goPrev();
-  //   } else if (diff < -60) {
-  //     goNext();
-  //   }
-
-  //   startXRef.current = null;
-  //   setIsPressed(false);
-
-  //   // 元の位置へ戻す
-  //   setDragOffset(0);
-  // };
-  const handlePointerUp = (event: React.PointerEvent<HTMLDivElement>) => {
-    if (startXRef.current === null) {
-      setIsPressed(false);
-      return;
-    }
-
-    const diff = event.clientX - startXRef.current;
-
-    // スワイプ量に応じて複数枚移動
-    const threshold = 60;
-
-    if (Math.abs(diff) > threshold) {
-      // 何枚分動かすか計算
-      const moveCount = Math.min(4, Math.max(1, Math.floor(Math.abs(diff) / 120)));
-
-      if (diff > 0) {
-        setActiveIndex((prev) => {
-          return (prev - moveCount + cards.length * 10) % cards.length;
-        });
-      } else {
-        setActiveIndex((prev) => {
-          return (prev + moveCount) % cards.length;
-        });
-      }
-    }
-
-    startXRef.current = null;
-    setIsPressed(false);
-
-    // 元の位置へ戻す
-    setDragOffset(0);
+  const handleNextClick = () => {
+    setIsAutoPlaying(false);
+    goNext();
   };
 
   useEffect(() => {
@@ -180,15 +117,18 @@ export default function ExhibitorCarousel() {
   }, []);
 
   useEffect(() => {
+    if (!isAutoPlaying) return;
+
     const timer = setInterval(goNext, 5000);
+
     return () => clearInterval(timer);
-  }, []);
+  }, [goNext, isAutoPlaying]);
 
   return (
     <div className="relative mx-auto mt-10 h-[360px] w-full max-w-7xl overflow-visible md:mt-14 md:h-[540px]">
       <button
         type="button"
-        onClick={goPrev}
+        onClick={handlePrevClick}
         className="absolute left-2 top-1/2 z-50 -translate-y-1/2 text-3xl font-light text-orange-500 transition hover:scale-110 hover:text-orange-600 active:translate-y-1 active:scale-95 md:left-8 md:text-5xl"
         aria-label="前のカードへ"
       >
@@ -197,24 +137,28 @@ export default function ExhibitorCarousel() {
 
       <button
         type="button"
-        onClick={goNext}
+        onClick={handleNextClick}
         className="absolute right-2 top-1/2 z-50 -translate-y-1/2 text-3xl font-light text-orange-500 transition hover:scale-110 hover:text-orange-600 active:translate-y-1 active:scale-95 md:right-8 md:text-5xl"
         aria-label="次のカードへ"
       >
         ⇨
       </button>
 
-      <div
-        className="relative mx-auto h-full w-full max-w-6xl touch-pan-y select-none"
-        onPointerDown={handlePointerDown}
-        onPointerMove={handlePointerMove}
-        onPointerUp={handlePointerUp}
-        onPointerCancel={() => {
-          startXRef.current = null;
-          setIsPressed(false);
-          setDragOffset(0);
-        }}
+      <button
+        type="button"
+        onClick={() => setIsAutoPlaying((prev) => !prev)}
+        className="absolute bottom-0 left-1/2 z-50 flex h-11 w-11 -translate-x-1/2 items-center justify-center rounded-full border-2 border-orange-400 bg-white text-orange-500 shadow-md transition hover:bg-orange-50 active:translate-y-1 md:h-14 md:w-14"
+        aria-label={isAutoPlaying ? "自動切り替えを停止する" : "自動切り替えを再開する"}
+        aria-pressed={!isAutoPlaying}
       >
+        {isAutoPlaying ? (
+          <FaPause className="text-sm md:text-lg" />
+        ) : (
+          <FaPlay className="ml-0.5 text-sm md:text-lg" />
+        )}
+      </button>
+
+      <div className="relative mx-auto h-full w-full max-w-6xl select-none">
         {cards.map((card, index) => {
           let offset = index - activeIndex;
 
@@ -256,7 +200,6 @@ export default function ExhibitorCarousel() {
               });
 
           const isActive = offset === 0;
-          const pressY = isActive && isPressed ? 8 : 0;
 
           return (
             <Link
@@ -273,9 +216,9 @@ export default function ExhibitorCarousel() {
                 filter: isActive ? "none" : "brightness(0.88)",
                 transform: `
                   translate(-50%, -50%)
-                  translateX(${position.x + (isActive ? dragOffset : dragOffset * 0.35)}px)
-                  translateY(${position.y + pressY}px)
-                  scale(${isActive && isPressed ? position.scale * 0.98 : position.scale})
+                  translateX(${position.x}px)
+                  translateY(${position.y}px)
+                  scale(${position.scale})
                 `,
               }}
             >
