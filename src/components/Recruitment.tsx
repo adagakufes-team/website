@@ -31,7 +31,7 @@ export default function Recruitment() {
           {/* ボタン */}
           <div className="flex flex-col items-center justify-center gap-4 pt-4 sm:flex-row">
             <a
-              href="/pdf/recruitment-guide.pdf"
+              href="https://drive.google.com/file/d/13kNrjJRbI9HmDAKCXP266X8N7YmCkeEx/view"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block rounded-full bg-orange-500 px-6 py-3 text-base font-bold text-white transition hover:bg-orange-600 active:scale-95 md:text-lg"
