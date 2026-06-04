@@ -51,7 +51,7 @@ export default function ExhibitorsPage() {
       : exhibitors.filter((exhibitor) => exhibitor.university === selectedUniversity);
 
   return (
-    <main className="min-h-screen bg-[#6f6f9f] px-6 py-24 text-white md:px-16">
+    <main className="min-h-screen bg-orange-400/65 px-6 py-24 text-white md:px-16">
       <FadeIn>
         <div className="mx-auto max-w-7xl">
           <section className="grid gap-12 md:grid-cols-[300px_1fr]">
