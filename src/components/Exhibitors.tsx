@@ -1,15 +1,27 @@
+import FadeIn from "@/components/FadeIn";
+import ExhibitorCarousel from "@/components/exhibitors/ExhibitorCarousel";
+
 export default function Exhibitors() {
   return (
-    <section id="exhibitors" className="px-4 py-2 md:px-8 md:py-4">
-      <div className="mx-auto max-w-7xl rounded-3xl border-2 border-orange-500 bg-[#f8f8f8] px-6 py-10 text-center md:px-10 md:py-8">
-        {/* タイトル */}
-        <h2 className="text-2xl font-bold text-gray-900 md:text-3xl">出展団体</h2>
+    <section id="exhibitors" className="scroll-mt-24 px-4 py-16 md:px-8 md:py-24">
+      <div className="mx-auto max-w-5xl">
+        <FadeIn>
+          <div className="text-center">
+            <h2 className="text-4xl font-bold text-gray-900 md:text-4xl">出展団体</h2>
 
-        {/* 下線 */}
-        <div className="mx-auto mt-4 h-1 w-24 rounded-full bg-orange-400 md:w-32"></div>
+            <div className="mx-auto mt-4 h-0.5 max-w-[320px] rounded-full bg-orange-400 lg:max-w-[520px]" />
 
-        {/* 本文 */}
-        <p className="mt-6 text-base font-medium text-gray-700 md:text-lg">準備中です</p>
+            <p className="mx-auto mt-8 max-w-3xl text-base leading-relaxed text-gray-700 md:text-lg">
+              足立区内5大学の出展団体をご紹介します。
+              <br />
+              カードを押すと詳細ページをご覧いただけます。
+            </p>
+          </div>
+        </FadeIn>
+
+        <FadeIn>
+          <ExhibitorCarousel />
+        </FadeIn>
       </div>
     </section>
   );

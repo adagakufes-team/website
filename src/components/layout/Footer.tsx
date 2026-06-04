@@ -1,8 +1,9 @@
 import { FaXTwitter, FaInstagram } from "react-icons/fa6";
+import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white mt-20">
+    <footer className="bg-gray-900 text-white">
       <div className="max-w-6xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-8">
         {/* 左：団体情報 */}
         <div>
@@ -21,19 +22,19 @@ export default function Footer() {
           <h2 className="text-lg font-bold mb-4">サイトマップ</h2>
           <ul className="space-y-2 text-sm">
             <li>
-              <a href="#news">お知らせ</a>
+              <Link href="/#news">お知らせ</Link>
             </li>
             <li>
-              <a href="#about">あだち大学フェスとは</a>
+              <Link href="/#about">あだち大学フェスとは</Link>
             </li>
             <li>
-              <a href="#exhibitors">出展団体</a>
+              <Link href="/#exhibitors">出展団体</Link>
             </li>
             <li>
-              <a href="#visitors">ご来場の方へ</a>
+              <Link href="/#visitors">ご来場の方へ</Link>
             </li>
             <li>
-              <a href="#contact">お問い合わせ</a>
+              <Link href="/#contact">お問い合わせ</Link>
             </li>
           </ul>
         </div>
