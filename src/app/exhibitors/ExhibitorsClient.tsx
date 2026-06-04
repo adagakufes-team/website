@@ -51,21 +51,22 @@ export default function ExhibitorsPage() {
       : exhibitors.filter((exhibitor) => exhibitor.university === selectedUniversity);
 
   return (
-    <main className="min-h-screen bg-orange-400/65 px-6 py-24 text-white md:px-16">
+    <main className="min-h-screen bg-[#fff7e8] px-6 py-24 text-gray-900 md:px-16">
       <FadeIn>
         <div className="mx-auto max-w-7xl">
           <section className="grid gap-12 md:grid-cols-[300px_1fr]">
             {/* 左 */}
             <div>
               <h1 className="text-4xl font-light md:text-6xl">出展団体</h1>
+              <div className="mt-4 h-0.5 w-40 bg-orange-500 md:w-56" />
 
               <div className="mt-10">
-                <div className="w-full border-2 border-white transition active:translate-y-1 active:bg-white/10">
+                <div className="w-full border-2 border-orange-400 bg-white/60 shadow-sm transition active:translate-y-1 active:bg-orange-50">
                   <div className="flex items-center">
                     <Link
                       href="/exhibitors?university=all"
-                      className={`flex flex-1 items-center justify-center gap-3 px-6 py-3 text-lg text-white transition hover:bg-white/10 active:translate-y-1 ${
-                        selectedUniversity === "all" ? "bg-white/10" : ""
+                      className={`flex flex-1 items-center justify-center gap-3 px-6 py-3 text-lg text-gray-900 transition hover:bg-orange-50 active:translate-y-1 ${
+                        selectedUniversity === "all" ? "bg-orange-100 font-semibold" : ""
                       }`}
                     >
                       <span>すべて</span>
@@ -74,7 +75,7 @@ export default function ExhibitorsPage() {
                     <button
                       type="button"
                       onClick={() => setIsOpen((prev) => !prev)}
-                      className="px-5 py-3 text-lg text-white transition hover:bg-white/10 active:translate-y-1"
+                      className="border-l-2 border-orange-400 px-5 py-3 text-lg text-orange-500 transition hover:bg-orange-50 active:translate-y-1"
                       aria-label="大学一覧を開く"
                     >
                       {isOpen ? "▽" : "△"}
@@ -94,8 +95,10 @@ export default function ExhibitorsPage() {
                         <Link
                           key={university.id}
                           href={`/exhibitors?university=${university.id}`}
-                          className={`block border-b border-white px-2 py-3 text-lg transition hover:opacity-70 active:translate-y-1 ${
-                            selectedUniversity === university.id ? "font-semibold" : ""
+                          className={`block border-b border-orange-300 px-2 py-3 text-lg transition hover:text-orange-600 active:translate-y-1 ${
+                            selectedUniversity === university.id
+                              ? "font-semibold text-orange-600"
+                              : ""
                           }`}
                         >
                           {university.name}
@@ -108,7 +111,7 @@ export default function ExhibitorsPage() {
 
             {/* 右 */}
             <div>
-              <p className="max-w-3xl text-base leading-relaxed md:text-lg">
+              <p className="max-w-3xl text-base leading-relaxed text-gray-800 md:text-lg">
                 現在、あだち大学フェスに出展していただける団体様を
                 募集しています！（足立5大学の団体様のみ）
                 <br />
@@ -120,7 +123,7 @@ export default function ExhibitorsPage() {
                 href="/pdf/adagaku-plan.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-20 block w-full max-w-sm border-2 border-white px-8 py-3 text-center text-lg text-white transition hover:bg-white/10 active:translate-y-1 md:ml-auto"
+                className="mt-20 block w-full max-w-sm border-2 border-orange-400 bg-white/60 px-8 py-3 text-center text-lg text-gray-900 shadow-sm transition hover:bg-orange-50 active:translate-y-1 md:ml-auto"
               >
                 企画案はこちら
               </a>
@@ -129,11 +132,13 @@ export default function ExhibitorsPage() {
                 {filteredExhibitors.map((exhibitor) => (
                   <FadeIn key={`${selectedUniversity}-${exhibitor.id}`}>
                     <div className="max-w-3xl">
-                      <h2 className="text-xl font-normal">{exhibitor.universityName}</h2>
+                      <h2 className="text-xl font-normal text-gray-900">
+                        {exhibitor.universityName}
+                      </h2>
 
-                      <div className="mt-3 h-px w-full bg-white" />
+                      <div className="mt-3 h-px w-full bg-orange-400" />
 
-                      <p className="mt-5 text-base">準備中です</p>
+                      <p className="mt-5 text-base text-gray-700">準備中です</p>
                     </div>
                   </FadeIn>
                 ))}
