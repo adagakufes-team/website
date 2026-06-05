@@ -4,6 +4,7 @@ import About from "@/components/About";
 import Exhibitors from "@/components/Exhibitors";
 import Visitors from "@/components/visitors/Visitors";
 import Contact from "@/components/Contact";
+import Archives from "@/components/archive";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
       <About />
       <Visitors />
       <Exhibitors />
+      <Archives />
       <Contact />
     </main>
   );
