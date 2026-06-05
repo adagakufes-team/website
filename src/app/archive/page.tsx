@@ -6,7 +6,7 @@ const archives = [
     title: "第1回あだち大学フェス",
     date: "2025.08.29",
     image: "../../public/2025.jpg",
-    url: "https://www.sg.dendai.ac.jp/s1b-life/ecocraft",
+    url: "https://www.sg.dendai.ac.jp/s1b-life/adagaku-fes",
     description: "足立区の大学が集まり、地域と学生をつなぐイベントとして開催しました。",
   },
 ];
