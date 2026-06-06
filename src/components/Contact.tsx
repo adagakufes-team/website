@@ -7,7 +7,7 @@ export default function Contact() {
         {/* タイトル */}
         <FadeIn>
           <div>
-            <h2 className="text-3xl font-bold text-black/90 md:text-5xl">お問い合わせ</h2>
+            <h2 className="text-3xl font-bold text-black/90 md:text-4xl">お問い合わせ</h2>
             <div className="mt-3 h-0.5 w-full max-w-[320px] bg-orange-400 md:max-w-[520px]" />
           </div>
         </FadeIn>
@@ -29,8 +29,8 @@ export default function Contact() {
 
               {/* 前面 */}
               <div className="relative bg-orange-500/80 px-5 py-5 text-sm leading-relaxed text-white shadow-md md:px-8 md:py-6 md:text-xl">
-                <p>メール：adagakufes@gmail.com</p>
                 <p className="mt-3">主催：あだち大学フェス実行委員会</p>
+                <p>メール：adagakufes@gmail.com</p>
               </div>
             </div>
           </FadeIn>
