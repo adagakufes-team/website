@@ -5,6 +5,7 @@ import About from "@/components/About";
 import Exhibitors from "@/components/Exhibitors";
 import Visitors from "@/components/visitors/Visitors";
 import Contact from "@/components/Contact";
+import Recruitment from "@/components/Recruitment";
 
 export default function Home() {
   return (
@@ -27,14 +28,15 @@ export default function Home() {
           className="w-full max-w-6xl"
           priority
         />
-        <div className="mt-8">
+        <div className="mt-8 text-gray-900">
           <p className="text-4xl font-bold md:text-3xl">in 東京電機大学</p>
-          <p className="mt-2 text-4xl font-bold md:text-3xl">8/28(金) 10:00～15:00</p>
+          <p className="mt-2 text-4xl font-bold md:text-3xl">8/28(金) 予定</p>
         </div>
       </div>
-
       <News />
+      <Recruitment />
       <About />
+      <Exhibitors />
       <Visitors />
       <Exhibitors />
       <Contact />

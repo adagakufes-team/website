@@ -1,10 +1,4 @@
-"use client";
-
-import { useState } from "react";
-
 export default function Recruitment() {
-  const [showMessage, setShowMessage] = useState(false);
-
   return (
     <section id="recruitment" className="px-4 py-2 md:px-8 md:py-4">
       <div className="mx-auto max-w-7xl rounded-3xl border-2 border-orange-500 bg-[#f8f8f8] px-6 py-10 text-center md:px-10 md:py-8">
@@ -16,34 +10,42 @@ export default function Recruitment() {
 
         {/* 本文 */}
         <div className="mx-auto mt-6 max-w-6xl space-y-4 text-left text-base leading-relaxed text-gray-900 md:text-lg">
+          <div>
+            <p className="indent-4">
+              現在、あだち大学フェスに
+              <span className="font-bold text-orange-600">出展していただける団体様</span>
+              を募集しています！
+            </p>
+            <p className="indent-4">
+              ※足立区内の5大学（東京藝術大学・東京未来大学・帝京科学大学・東京電機大学・文教大学）の団体のみ
+            </p>
+          </div>
           <p className="indent-4">
-            現在、あだち大学フェスに
-            <span className="font-bold text-orange-600">出展していただける団体様</span>
-            を募集しています！（足立5大学の団体様のみ）
-          </p>
-          <p className="indent-4">
-            ご興味のある団体様は、
+            ご興味のある団体様は、募集案内をご覧の上、
             <span className="font-bold">
-              このWebページの一番下にある あだち大学フェスのメールアドレス
+              あだち大学フェス公式メールアドレス(adagakufes@gmail.com)
             </span>
             までご連絡ください。
           </p>
 
           {/* ボタン */}
-          <div className="pt-4 text-center">
-            <button
-              type="button"
-              onClick={() => setShowMessage(true)}
-              className="rounded-full bg-orange-500 px-6 py-3 text-base font-bold text-white transition hover:bg-orange-600 active:scale-95 md:text-lg"
+          <div className="flex flex-col items-center justify-center gap-4 pt-4 sm:flex-row">
+            <a
+              href="https://drive.google.com/file/d/13kNrjJRbI9HmDAKCXP266X8N7YmCkeEx/view"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block rounded-full bg-orange-500 px-6 py-3 text-base font-bold text-white transition hover:bg-orange-600 active:scale-95 md:text-lg"
             >
-              企画案はこちら
-            </button>
-
-            {showMessage && (
-              <p className="mt-4 text-base font-semibold text-orange-600 md:text-lg">
-                企画案PDFは現在準備中です。しばらくお待ちください。
-              </p>
-            )}
+              募集案内はこちら
+            </a>
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSev1_Bgxim-MMmfXHGo2wLBVJWIVVcMQWyaZimIG7JS_z4nSA/viewform?usp=dialog"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block rounded-full bg-orange-500 px-6 py-3 text-base font-bold text-white transition hover:bg-orange-600 active:scale-95 md:text-lg"
+            >
+              応募はこちら
+            </a>
           </div>
         </div>
       </div>

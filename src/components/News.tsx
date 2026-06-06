@@ -2,25 +2,15 @@ const newsItems = [
   {
     id: 202605,
     date: "2026年5月",
-    text: "新ウェブサイト公開しました",
-  },
-  {
-    id: 202508,
-    date: "2025年8月",
-    text: "最新情報は各種SNSからご覧ください",
-  },
-  {
-    id: 202507,
-    date: "2025年7月",
-    text: "あだち大学フェス公式サイトを公開しました。",
+    text: "あだち大学フェス2026の開催が決定しました！",
   },
 ];
 
 export default function News() {
   return (
-    <section className="bg-white px-6 py-16">
+    <section id="news" className="bg-white px-6 py-16">
       <div className="mx-auto max-w-6xl">
-        <h2 className="mb-10 text-center text-3xl font-bold">
+        <h2 className="mb-10 text-center text-3xl font-bold text-gray-900">
           お知らせ
           <span className="mx-auto mt-2 block h-1 w-24 rounded bg-orange-400" />
         </h2>
