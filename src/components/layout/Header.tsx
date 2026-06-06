@@ -6,8 +6,8 @@ import Image from "next/image";
 
 const navItems = [
   { label: "あだち大学フェスとは", href: "#about" },
-  { label: "ご来場の方へ", href: "#visitors" },
   { label: "出展団体", href: "#exhibitors" },
+  { label: "ご来場の方へ", href: "#visitors" },
   { label: "お問い合わせ", href: "#contact" },
 ];
 

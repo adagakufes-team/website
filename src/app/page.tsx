@@ -24,8 +24,8 @@ export default function Home() {
       </div>
       <News />
       <About />
-      <Visitors />
       <Exhibitors />
+      <Visitors />
       <Contact />
     </main>
   );

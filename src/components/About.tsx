@@ -25,10 +25,6 @@ export default function About() {
                 />
                 <span className="mb-1 whitespace-nowrap">とは</span>
               </h3>
-
-              <div className="hidden lg:mt-auto lg:flex lg:items-end lg:justify-end lg:gap-4 lg:pb-8">
-                <ExhibitorsLink />
-              </div>
             </div>
           </FadeIn>
 
@@ -39,11 +35,6 @@ export default function About() {
                 各大学の有志団体が集まり、学園祭の宣伝やサークルの紹介、
                 子供向けの工作教室などのワークショップなどを企画しています！
               </p>
-
-              <div className="mt-8 flex items-end gap-3 lg:hidden">
-                <ExhibitorsLink />
-              </div>
-
               <div className="mt-6 flex justify-end opacity-30 lg:mt-8">
                 <Image
                   src="/logo/logo.png"
@@ -58,22 +49,5 @@ export default function About() {
         </div>
       </div>
     </section>
-  );
-}
-
-function ExhibitorsLink() {
-  return (
-    <>
-      <span className="text-base text-black sm:text-lg lg:text-2xl">出展団体はこちら</span>
-
-      <a
-        href="#exhibitors"
-        className="group relative inline-block text-2xl font-bold text-white transition-transform duration-150 hover:translate-y-0.5 active:translate-y-1 lg:text-3xl"
-        style={{ WebkitTextStroke: "1px #f97316" }}
-      >
-        View
-        <span className="absolute -bottom-1 left-0 h-0.5 w-full bg-orange-500 transition group-hover:-bottom-0.5" />
-      </a>
-    </>
   );
 }
