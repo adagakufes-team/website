@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const archives = [
@@ -5,7 +6,7 @@ const archives = [
     year: "2025",
     title: "第1回あだち大学フェス",
     date: "2025.08.29",
-    image: "../../public/2025.jpg",
+    image: "/icon.png",
     url: "https://www.sg.dendai.ac.jp/s1b-life/adagaku-fes",
     description: "足立区の大学が集まり、地域と学生をつなぐイベントとして開催しました。",
   },
@@ -26,32 +27,32 @@ export default function ArchivePage() {
       </div>
 
       {/* アーカイブ一覧 */}
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {archives.map((archive) => (
           <article
             key={archive.year}
             className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg transition-all duration-300 hover:-translate-y-2 hover:border-orange-300 hover:shadow-2xl"
           >
-            {/* 画像エリア */}
-            <div className="flex h-56 items-center justify-center bg-gray-100">
-              <span className="text-gray-400">写真を配置</span>
+            {/* 画像 */}
+            <div className="relative h-40 w-full">
+              <Image src={archive.image} alt={archive.title} fill className="object-cover" />
             </div>
 
             {/* 内容 */}
-            <div className="p-6">
+            <div className="p-4">
               <p className="text-sm font-semibold tracking-wider text-orange-500">{archive.year}</p>
 
-              <h2 className="mt-2 text-2xl font-bold">{archive.title}</h2>
+              <h2 className="mt-2 text-xl font-bold">{archive.title}</h2>
 
               <p className="mt-2 text-sm text-gray-500">開催日：{archive.date}</p>
 
-              <p className="mt-4 text-gray-600">{archive.description}</p>
+              <p className="mt-4 text-sm text-gray-600">{archive.description}</p>
 
               <Link
                 href={archive.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group mt-6 inline-flex items-center gap-2 rounded-lg bg-orange-500 px-5 py-3 font-semibold text-white transition hover:bg-orange-600"
+                className="group mt-4 inline-flex items-center gap-2 rounded-lg bg-orange-500 px-4 py-2 font-semibold text-white transition hover:bg-orange-600"
               >
                 サイトを見る
                 <span className="transition-transform group-hover:translate-x-1">→</span>
