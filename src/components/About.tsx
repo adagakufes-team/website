@@ -15,15 +15,15 @@ export default function About() {
         <div className="mt-10 grid gap-8 lg:grid-cols-[520px_1fr] lg:gap-16">
           <FadeIn>
             <div className="flex h-full flex-col">
-              <h3 className="flex items-end text-2xl text-black sm:text-3xl lg:text-4xl">
+              <h3 className="flex items-center text-2xl text-black sm:text-3xl lg:text-4xl">
                 <Image
-                  src="/logo/logo-horizontal.png"
-                  alt="あだち大学フェス"
-                  width={320}
-                  height={80}
-                  className="w-52 sm:w-64 lg:w-80"
+                  src="/logo/logo.png"
+                  alt="ロゴ"
+                  width={120}
+                  height={120}
+                  className="h-9 w-9 object-contain sm:h-9 sm:w-9 lg:h-9 lg:w-9"
                 />
-                <span className="mb-1 whitespace-nowrap">とは</span>
+                <span className="whitespace-nowrap">あだち大学フェスとは</span>
               </h3>
             </div>
           </FadeIn>

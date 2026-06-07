@@ -1,18 +1,18 @@
 import Image from "next/image";
-import Link from "next/link";
-import News from "@/components/News";
+import Recruitment from "@/components/Recruitment";
+import News from "@/components/News/News";
 import About from "@/components/About";
 import Exhibitors from "@/components/Exhibitors";
 import Visitors from "@/components/visitors/Visitors";
 import Contact from "@/components/Contact";
-import Recruitment from "@/components/Recruitment";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <main>
       <Link
         href="/exhibitors"
-        className="fixed right-5 bottom-5 z-50 rounded-full bg-orange-500 px-5 py-4 text-sm font-bold text-white shadow-lg transition active:translate-y-1 active:shadow-md md:right-8 md:bottom-8 md:px-7 md:py-5 md:text-base"
+        className="fixed right-5 bottom-5 z-50 rounded-full bg-orange-400/80 px-5 py-4 text-sm font-bold text-white shadow-lg transition active:translate-y-1 active:shadow-md md:right-8 md:bottom-8 md:px-7 md:py-5 md:text-base"
       >
         出展希望の
         <br />
@@ -38,7 +38,6 @@ export default function Home() {
       <About />
       <Exhibitors />
       <Visitors />
-      <Exhibitors />
       <Contact />
     </main>
   );
