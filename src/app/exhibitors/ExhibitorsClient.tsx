@@ -45,6 +45,9 @@ export default function ExhibitorsPage() {
     ? (universityParam as UniversityId)
     : "all";
 
+  const selectedUniversityName =
+    universities.find((university) => university.id === selectedUniversity)?.name ?? "出展団体";
+
   const filteredExhibitors =
     selectedUniversity === "all"
       ? exhibitors
@@ -57,8 +60,11 @@ export default function ExhibitorsPage() {
           <section className="grid gap-12 md:grid-cols-[300px_1fr]">
             {/* 左 */}
             <div>
-              <h1 className="text-4xl font-light md:text-6xl">出展団体</h1>
-              <div className="mt-4 h-0.5 w-40 bg-orange-500 md:w-56" />
+              <h1 className="text-4xl font-light md:text-5xl">
+                {selectedUniversity === "all" ? "出展団体" : selectedUniversityName}
+              </h1>
+
+              <div className="mt-4 h-0.5 w-50 bg-orange-500 md:w-75" />
 
               <div className="mt-10">
                 <div className="w-full border-2 border-orange-400 bg-white/60 shadow-sm transition active:translate-y-1 active:bg-orange-50">
@@ -78,7 +84,7 @@ export default function ExhibitorsPage() {
                       className="border-l-2 border-orange-400 px-5 py-3 text-lg text-orange-500 transition hover:bg-orange-50 active:translate-y-1"
                       aria-label="大学一覧を開く"
                     >
-                      {isOpen ? "▽" : "△"}
+                      {isOpen ? "△" : "▽"}
                     </button>
                   </div>
                 </div>
@@ -112,21 +118,32 @@ export default function ExhibitorsPage() {
             {/* 右 */}
             <div>
               <p className="max-w-3xl text-base leading-relaxed text-gray-800 md:text-lg">
-                現在、あだち大学フェスに出展していただける団体様を
-                募集しています！（足立5大学の団体様のみ）
+                現在、あだち大学フェスに出展していただける団体様を募集しています！
+                （足立5大学の団体様のみ）
                 <br />
                 ご興味のある団体様は、このWebページの一番下にある
                 あだち大学フェスのメールアドレスまでご連絡ください。
               </p>
 
-              <a
-                href="/pdf/adagaku-plan.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-20 block w-full max-w-sm border-2 border-orange-400 bg-white/60 px-8 py-3 text-center text-lg text-gray-900 shadow-sm transition hover:bg-orange-50 active:translate-y-1 md:ml-auto"
-              >
-                企画案はこちら
-              </a>
+              <div className="mt-20 flex flex-col gap-4 md:flex-row md:justify-end">
+                <a
+                  href="https://drive.google.com/file/d/13kNrjJRbI9HmDAKCXP266X8N7YmCkeEx/view"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full md:w-72 border-2 border-orange-400 bg-white/60 px-8 py-3 text-center text-lg text-gray-900 shadow-sm transition hover:bg-orange-50 active:translate-y-1"
+                >
+                  募集案内はこちら
+                </a>
+
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSev1_Bgxim-MMmfXHGo2wLBVJWIVVcMQWyaZimIG7JS_z4nSA/viewform?usp=dialog"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full md:w-72 border-2 border-orange-400 bg-white/60 px-8 py-3 text-center text-lg text-gray-900 shadow-sm transition hover:bg-orange-50 active:translate-y-1"
+                >
+                  応募はこちら
+                </a>
+              </div>
 
               <div className="mt-14 space-y-8">
                 {filteredExhibitors.map((exhibitor) => (
