@@ -54,7 +54,7 @@ export default function ArchivePage() {
                 rel="noopener noreferrer"
                 className="group mt-4 inline-flex items-center gap-2 rounded-lg bg-orange-500 px-4 py-2 font-semibold text-white transition hover:bg-orange-600"
               >
-                サイトを見る
+                詳細を見る
                 <span className="transition-transform group-hover:translate-x-1">→</span>
               </Link>
             </div>
