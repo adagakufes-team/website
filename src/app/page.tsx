@@ -4,6 +4,7 @@ import About from "@/components/About";
 import Exhibitors from "@/components/Exhibitors";
 import Visitors from "@/components/visitors/Visitors";
 import Contact from "@/components/Contact";
+import Recruitment from "@/components/Recruitment";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
           <p className="mt-2 text-4xl font-bold md:text-3xl">8/28(金) 予定</p>
         </div>
       </div>
+      <Recruitment />
       <News />
       <About />
       <Exhibitors />
