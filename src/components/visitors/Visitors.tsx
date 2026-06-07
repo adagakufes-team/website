@@ -7,7 +7,6 @@ import FadeIn from "@/components/FadeIn";
 
 export default function Visitors() {
   const [isAccessOpen, setIsAccessOpen] = useState(false);
-  const [isLeafletOpen, setIsLeafletOpen] = useState(false);
 
   return (
     <section id="visitors" className="px-4 py-12 md:px-8 md:py-24">
@@ -89,22 +88,6 @@ export default function Visitors() {
                   バリアフリーについて
                 </a>
               </FadeIn>
-
-              <FadeIn>
-                <button
-                  type="button"
-                  onClick={() => setIsLeafletOpen((prev) => !prev)}
-                  className="block w-full border-b-2 border-orange-400 pb-3 text-left text-lg text-gray-900 transition duration-150 hover:text-orange-500 active:translate-y-1 active:scale-[0.98] md:text-2xl"
-                >
-                  リーフレットはこちら
-                </button>
-              </FadeIn>
-
-              {isLeafletOpen && (
-                <FadeIn>
-                  <p className="text-sm text-gray-500 md:text-xl">リーフレットは現在準備中です。</p>
-                </FadeIn>
-              )}
             </div>
           </div>
         </div>
