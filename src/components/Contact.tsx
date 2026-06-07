@@ -23,14 +23,14 @@ export default function Contact() {
 
           {/* 右 */}
           <FadeIn>
-            <div className="relative mt-30 mx-auto w-full max-w-[420px]">
+            <div className="relative mt-10 mx-auto w-full max-w-[420px]">
               {/* 後ろの枠 */}
               <div className="absolute top-[-10px] left-[-10px] h-full w-full border-2 border-orange-500" />
 
               {/* 前面 */}
               <div className="relative bg-orange-500/80 px-5 py-5 text-sm leading-relaxed text-white shadow-md md:px-8 md:py-6 md:text-xl">
-                <p className="mt-3">主催：あだち大学フェス実行委員会</p>
-                <p>メール：adagakufes@gmail.com</p>
+                <p>主催：あだち大学フェス実行委員会</p>
+                <p className="mt-3">メール：adagakufes@gmail.com</p>
               </div>
             </div>
           </FadeIn>
