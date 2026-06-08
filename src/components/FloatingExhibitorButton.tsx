@@ -20,7 +20,7 @@ export default function FloatingExhibitorButton() {
 
   return (
     <Link
-      href="/exhibitors"
+      href="/#recruitment"
       aria-label="出展希望の団体様はこちら"
       className={`group fixed right-5 bottom-5 z-50 transition-all duration-500 md:right-8 md:bottom-8 ${
         isVisible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-8 opacity-0"
