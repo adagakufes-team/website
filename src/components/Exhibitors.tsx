@@ -3,7 +3,7 @@ import ExhibitorCarousel from "@/components/exhibitors/ExhibitorCarousel";
 
 export default function Exhibitors() {
   return (
-    <section id="exhibitors" className="scroll-mt-24 px-4 py-16 md:px-8 md:py-24">
+    <section id="exhibitors" className="scroll-mt-24 px-4 pt-4 pb-8 md:px-8 md:pt-6 md:pb-10">
       <div className="mx-auto max-w-5xl">
         <FadeIn>
           <div className="text-center">
