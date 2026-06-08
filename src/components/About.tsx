@@ -3,8 +3,8 @@ import FadeIn from "@/components/FadeIn";
 
 export default function About() {
   return (
-    <section id="about" className="scroll-mt-24 px-4 py-10 lg:px-8 lg:py-20">
-      <div className="mx-auto max-w-7xl px-2 py-8 sm:px-6 lg:px-20 lg:py-16">
+    <section id="about" className="scroll-mt-24 px-4 pt-4 pb-10 lg:px-8 lg:pt-6 lg:pb-20">
+      <div className="mx-auto max-w-7xl px-2 py-4 sm:px-6 lg:px-20 lg:py-8">
         <FadeIn>
           <div>
             <h2 className="text-4xl font-light text-black/90 lg:text-6xl">About</h2>
