@@ -8,7 +8,7 @@ import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
-    <main>
+    <main className="overflow-x-hidden">
       <div className="flex min-h-screen flex-col items-center justify-center  text-center bg-[#f8f3e8]">
         <Image
           src="/logo/logo-horizontal.png"
