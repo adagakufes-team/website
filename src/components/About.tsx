@@ -34,7 +34,7 @@ export default function About() {
           </FadeIn>
 
           <FadeIn>
-            <div className="flex justify-end opacity-30 lg:mt-4">
+            <div className="flex justify-end lg:mt-4">
               <Image
                 src="/logo/logo.png"
                 alt="あだち大学フェスロゴ"

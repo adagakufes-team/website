@@ -66,9 +66,11 @@ export default function Visitors() {
                 <button
                   type="button"
                   onClick={() => setIsAccessOpen((prev) => !prev)}
-                  className="block w-full border-b-2 border-orange-400 pb-3 text-left text-lg text-gray-900 transition duration-150 hover:text-orange-500 active:translate-y-1 active:scale-[0.98] md:text-2xl"
+                  className="flex w-full items-center justify-between border-b-2 border-orange-400 pb-3 text-left text-lg text-gray-900 transition duration-150 hover:text-orange-500 active:translate-y-1 active:scale-[0.98] md:text-2xl"
                 >
-                  電車でのアクセス方法
+                  <span>電車でのアクセス方法</span>
+
+                  <span className="text-xl md:text-2xl">{isAccessOpen ? "△" : "▽"}</span>
                 </button>
               </FadeIn>
 
