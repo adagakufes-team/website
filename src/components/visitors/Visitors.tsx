@@ -38,13 +38,23 @@ export default function Visitors() {
 
             <FadeIn>
               <div>
-                <h3 className="text-2xl font-light text-gray-900 md:text-3xl">ご来場時のお願い</h3>
+                <h3 className="text-2xl font-light text-gray-900 md:text-3xl">
+                  ご来場時の注意事項
+                </h3>
 
                 <ul className="mt-4 space-y-2 text-base leading-relaxed text-gray-900 md:mt-5 md:text-xl md:leading-snug">
-                  <li>・構内には自動販売機がございます。</li>
-                  <li>・大学周辺にはコンビニエンスストアがございます。</li>
+                  <li>
+                    ・大学には一般来場者用の駐車場・駐輪場はございません。公共交通機関または徒歩でのご来場にご協力ください。
+                  </li>
+                  <li>・ペットの同伴はご遠慮ください。</li>
+                  <li>・車いす・ベビーカーでのご来場が可能です。</li>
+                  <li>
+                    ・ゴミは各自お持ち帰りいただくか、所定のゴミ箱をご利用ください。分別にご協力をお願いします。
+                  </li>
+                  <li>・館内での飲食はご遠慮ください。（蓋付きのお飲み物を除く）</li>
+                  <li>・大学構内へのお酒の持ち込み・飲酒は禁止です。</li>
                   <li>・大学構内は全面禁煙です。</li>
-                  <li>・お酒の持ち込み、飲酒はご遠慮下さい。</li>
+                  <li>・お困りの際は、受付または会場スタッフまでお声がけください。</li>
                 </ul>
               </div>
             </FadeIn>
