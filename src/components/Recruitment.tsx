@@ -1,4 +1,5 @@
 import FadeIn from "./FadeIn";
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 export default function Recruitment() {
   return (
@@ -26,11 +27,14 @@ export default function Recruitment() {
               </p>
             </div>
             <p className="indent-4">
-              ご興味のある団体様は、募集案内をご覧の上、
-              <span className="font-bold">
-                あだち大学フェス公式メールアドレス(adagakufes@gmail.com)
-              </span>
-              までご連絡ください。
+              ご興味のある団体様は、
+              <span className="font-bold">「募集案内」</span>
+              をご覧の上、
+              <span className="font-bold">「応募する」</span>
+              よりお申し込みください。
+            </p>
+            <p className="indent-4">
+              ご不明な点がございましたらあだち大学フェス公式メールアドレス(adagakufes@gmail.com)までお問い合わせください。
             </p>
           </FadeIn>
 
@@ -41,18 +45,20 @@ export default function Recruitment() {
                 href="https://drive.google.com/file/d/13kNrjJRbI9HmDAKCXP266X8N7YmCkeEx/view"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full md:w-72 border-2 border-orange-400 bg-white/60 px-8 py-3 text-center text-lg text-gray-900 shadow-sm transition hover:bg-orange-50 active:translate-y-1"
+                className="flex w-full items-center justify-center gap-2 border-2 border-orange-400 bg-white/60 px-8 py-3 text-center text-lg text-gray-900 shadow-sm transition hover:bg-orange-50 active:translate-y-1 md:w-72"
               >
-                募集案内はこちら
+                募集案内
+                <FaArrowUpRightFromSquare className="text-sm" />
               </a>
 
               <a
                 href="https://docs.google.com/forms/d/e/1FAIpQLSev1_Bgxim-MMmfXHGo2wLBVJWIVVcMQWyaZimIG7JS_z4nSA/viewform?usp=dialog"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full md:w-72 border-2 border-orange-400 bg-white/60 px-8 py-3 text-center text-lg text-gray-900 shadow-sm transition hover:bg-orange-50 active:translate-y-1"
+                className="flex w-full items-center justify-center gap-2 border-2 border-orange-400 bg-white/60 px-8 py-3 text-center text-lg text-gray-900 shadow-sm transition hover:bg-orange-50 active:translate-y-1 md:w-72"
               >
-                応募はこちら
+                応募する
+                <FaArrowUpRightFromSquare className="text-sm" />
               </a>
             </div>
           </FadeIn>
