@@ -95,7 +95,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 4.3, duration: 0.5 }}
         >
-          8/28(金) 10:00〜15:00(予定)
+          8/28(金) 10:00〜15:00
         </motion.p>
       </motion.div>
     </section>
