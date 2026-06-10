@@ -36,6 +36,7 @@ const newsTopics = [
         >
           こちら
         </a>
+        。
       </>
     ),
   },
