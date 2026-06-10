@@ -8,36 +8,31 @@ const universities = [
     name: "東京電機大学",
     color: "text-blue-300",
     start: { x: "-90vw", y: "-45vh" },
-    stay: { x: "-34vw", y: "-22vh" },
-    curve: { x: "22vw", y: "-16vh" },
+    stay: { x: "-30vw", y: "-22vh" },
   },
   {
     name: "文教大学",
     color: "text-yellow-200",
     start: { x: "90vw", y: "-45vh" },
     stay: { x: "30vw", y: "-24vh" },
-    curve: { x: "18vw", y: "16vh" },
   },
   {
     name: "帝京科学大学",
     color: "text-slate-400",
     start: { x: "-90vw", y: "45vh" },
     stay: { x: "-30vw", y: "20vh" },
-    curve: { x: "-20vw", y: "16vh" },
   },
   {
     name: "東京未来大学",
     color: "text-red-300",
     start: { x: "90vw", y: "45vh" },
     stay: { x: "30vw", y: "20vh" },
-    curve: { x: "-18vw", y: "-16vh" },
   },
   {
     name: "東京藝術大学",
     color: "text-stone-400",
     start: { x: "0vw", y: "-90vh" },
     stay: { x: "0vw", y: "-34vh" },
-    curve: { x: "0vw", y: "20vh" },
   },
 ];
 
@@ -55,22 +50,10 @@ export default function Hero() {
             scale: 1.3,
           }}
           animate={{
-            opacity: [0, 1, 1, 1, 0],
-            x: [
-              university.start.x,
-              university.stay.x,
-              university.stay.x,
-              university.curve.x,
-              "0vw",
-            ],
-            y: [
-              university.start.y,
-              university.stay.y,
-              university.stay.y,
-              university.curve.y,
-              "0vh",
-            ],
-            scale: [1.4, 1.1, 1.1, 1, 0.25],
+            opacity: [0, 1, 1, 0],
+            x: [university.start.x, university.stay.x, university.stay.x, "0vw"],
+            y: [university.start.y, university.stay.y, university.stay.y, "0vh"],
+            scale: [1.4, 1.1, 1.1, 0.25],
           }}
           transition={{
             duration: 3.8,
