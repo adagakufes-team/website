@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Access from "./Access";
 import FadeIn from "@/components/FadeIn";
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 export default function Visitors() {
   const [isAccessOpen, setIsAccessOpen] = useState(false);
@@ -76,28 +77,28 @@ export default function Visitors() {
                 <button
                   type="button"
                   onClick={() => setIsAccessOpen((prev) => !prev)}
-                  className="flex w-full items-center justify-between border-b-2 border-orange-400 pb-3 text-left text-lg text-gray-900 transition duration-150 hover:text-orange-500 active:translate-y-1 active:scale-[0.98] md:text-2xl"
+                  className="flex w-full items-center justify-center gap-2 border-2 border-orange-400 bg-white/60 px-6 py-4 text-lg text-gray-900 shadow-sm transition hover:bg-orange-50 active:translate-y-1 md:text-xl"
                 >
                   <span>電車でのアクセス方法</span>
-
-                  <span className="text-xl md:text-2xl">{isAccessOpen ? "△" : "▽"}</span>
+                  <span className="text-xl text-orange-500">{isAccessOpen ? "△" : "▽"}</span>
                 </button>
               </FadeIn>
 
               {isAccessOpen && (
-                <FadeIn>
+                <div className="mt-4">
                   <Access />
-                </FadeIn>
+                </div>
               )}
 
               <FadeIn>
                 <a
-                  href="https://www.dendai.ac.jp/access/e5vdec0000000c6m-att/bf-campusmap_tokyosenju.pdf"
+                  href="https://www.dendai.ac.jp/access/bf-campusmap_tokyosenju.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block border-b-2 border-orange-400 pb-3 text-lg text-gray-900 transition duration-150 hover:text-orange-500 active:translate-y-1 active:scale-[0.98] md:text-2xl"
+                  className="mt-4 flex w-full items-center justify-center gap-2 border-2 border-orange-400 bg-white/60 px-6 py-4 text-lg text-gray-900 shadow-sm transition hover:bg-orange-50 active:translate-y-1 md:text-xl"
                 >
-                  バリアフリーについて
+                  <span>バリアフリーについて</span>
+                  <FaArrowUpRightFromSquare className="text-lg text-orange-500" />
                 </a>
               </FadeIn>
             </div>

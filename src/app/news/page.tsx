@@ -7,7 +7,7 @@ const newsTopics = [
     id: 202605,
     date: "2026.5",
     title: "第2回あだち大学フェス開催決定",
-    image: "/news/2026.5.png",
+    image: "/news/202605.jpg",
     text: (
       <>
         第1回の反響を受け、第2回あだち大学フェスの開催が決定しました。
@@ -24,12 +24,19 @@ const newsTopics = [
     id: 20250828,
     date: "2025.8.28",
     title: "第1回あだち大学フェス開催",
-    image: "/news/2025.8.jpg",
+    image: "/news/202508.jpg",
     text: (
       <>
         東京電機大学北千住キャンパス1号館1階にて、
         足立区内の大学が合同で行うイベント「あだち大学フェス」が開催されました。
-        各大学の学生団体による展示や企画が行われ、 多くの来場者にお楽しみいただきました。
+        各大学の学生団体による展示や企画が行われ、 多くの来場者にお楽しみいただきました。詳しくは
+        <a
+          href="https://www.dendai.ac.jp/about/regional/news/20250829-99.html"
+          className="underline transition hover:opacity-70"
+        >
+          こちら
+        </a>
+        。
       </>
     ),
   },
