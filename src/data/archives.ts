@@ -12,8 +12,9 @@ export const archives = {
         university: "東京電機大学",
         name: "ダイビングサークル",
         image: "/archive/2025/exhibitors/diving.jpg",
+        shortDescription:"スキューバダイビング体験や水中写真展示を実施しました。",
 
-        description: "スキューバダイビング体験や水中写真の展示を実施しました。",
+        description: "スキューバダイビング体験や水中写真の展示を実施しました。スキューバダイビング体験や水中写真の展示を実施しましたスキューバダイビング体験や水中写真の展示を実施しました",
 
         website: "https://example.com",
         sns: "https://instagram.com/example",
@@ -23,6 +24,7 @@ export const archives = {
         university: "東京藝術大学",
         name: "芸術研究会",
         image: "/archive/2025/exhibitors/art.jpg",
+        shortDescription:"スキューバダイビング体験や水中写真展示を実施しました。",
 
         description: "学生作品の展示とライブペイントを実施しました。",
 
