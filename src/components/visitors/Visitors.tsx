@@ -1,69 +1,107 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Access from "./Access";
+import FadeIn from "@/components/FadeIn";
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 export default function Visitors() {
   const [isAccessOpen, setIsAccessOpen] = useState(false);
 
   return (
-    <section id="visitors" className="px-4 py-2 md:px-8 md:py-4">
-      <div className="mx-auto max-w-7xl rounded-3xl border-2 border-orange-500 bg-[#f8f8f8] px-6 py-10 md:px-10 md:py-8">
-        {/* タイトル */}
-        <h2 className="text-center text-2xl font-bold text-gray-900 md:text-3xl">ご来場の方へ</h2>
+    <section id="visitors" className="px-4 py-12 md:px-8 md:py-24">
+      <div className="mx-auto max-w-6xl">
+        <FadeIn>
+          <h2 className="text-center text-2xl font-bold text-gray-900 md:text-4xl">
+            ご来場のお客様へ
+          </h2>
 
-        {/* 下線 */}
-        <div className="mx-auto mt-4 h-1 w-24 rounded-full bg-orange-400 md:w-32"></div>
+          <div className="mt-4 mx-auto h-0.5 max-w-[320px] bg-orange-400 lg:max-w-[520px]"></div>
+        </FadeIn>
 
-        {/* 本文 */}
-        <div className="mt-8 space-y-8 text-base leading-relaxed text-gray-900 md:text-lg">
-          {/* 場所 */}
-          <div>
-            <h3 className="text-xl font-bold md:text-2xl">場所</h3>
+        <div className="mt-12 grid gap-10 md:mt-20 md:grid-cols-2 md:items-start">
+          {/* 左側 */}
+          <div className="space-y-10 md:space-y-16">
+            <FadeIn>
+              <div>
+                <h3 className="text-2xl font-light text-gray-900 md:text-3xl">場所</h3>
 
-            <p className="mt-3 indent-4 text-left">
-              〒120-8551
-              <br />
-              東京都足立区千住旭町5番
-              <br />
-              一号館100周年ホール
-            </p>
+                <p className="mt-4 text-lg leading-relaxed text-gray-900 md:mt-6 md:text-2xl md:leading-tight">
+                  〒<span className="font-bold">120-8551</span>
+                  <br />
+                  東京都足立区千住旭町<span className="font-bold">5</span>番
+                  <br />
+                  一号館<span className="font-bold">100</span>周年ホール
+                </p>
+              </div>
+            </FadeIn>
+
+            <FadeIn>
+              <div>
+                <h3 className="text-2xl font-light text-gray-900 md:text-3xl">
+                  ご来場時の注意事項
+                </h3>
+
+                <ul className="mt-4 space-y-2 text-base leading-relaxed text-gray-900 md:mt-5 md:text-xl md:leading-snug">
+                  <li>
+                    ・大学には一般来場者用の駐車場・駐輪場はございません。公共交通機関または徒歩でのご来場にご協力ください。
+                  </li>
+                  <li>・ペットの同伴はご遠慮ください。</li>
+                  <li>・車いす・ベビーカーでのご来場が可能です。</li>
+                  <li>
+                    ・ゴミは各自お持ち帰りいただくか、所定のゴミ箱をご利用ください。分別にご協力をお願いします。
+                  </li>
+                  <li>・館内での飲食はご遠慮ください。（蓋付きのお飲み物を除く）</li>
+                  <li>・大学構内へのお酒の持ち込み・飲酒は禁止です。</li>
+                  <li>・大学構内は全面禁煙です。</li>
+                  <li>・お困りの際は、受付または会場スタッフまでお声がけください。</li>
+                </ul>
+              </div>
+            </FadeIn>
           </div>
-
-          {/* ボタン */}
-          <div className="flex flex-col items-center gap-4 md:flex-row md:justify-center">
-            <button
-              type="button"
-              onClick={() => setIsAccessOpen((prev) => !prev)}
-              aria-expanded={isAccessOpen}
-              aria-controls="access"
-              className="rounded-xl border-2 border-orange-500 px-6 py-3 text-xl font-bold text-orange-500 transition hover:bg-orange-50 md:px-6 md:py-3 md:text-lg"
-            >
-              電車でお越しの方はこちら
-            </button>
-
-            <a
-              href="https://www.dendai.ac.jp/access/e5vdec0000000c6m-att/bf-campusmap_tokyosenju.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-xl border-2 border-orange-500 px-6 py-3 text-xl font-bold text-orange-500 transition hover:bg-orange-50 md:px-6 md:py-3 md:text-lg"
-            >
-              バリアフリー設備について
-            </a>
-          </div>
-
-          {isAccessOpen && <Access />}
-
-          {/* お願い */}
+          {/* 右側 */}
           <div>
-            <h3 className="text-xl font-bold md:text-2xl">ご来場時のお願い</h3>
+            <FadeIn>
+              <Image
+                src="/visitors/campus.jpg"
+                alt="東京電機大学 東京千住キャンパス"
+                width={900}
+                height={500}
+                className="w-full border border-gray-200 object-cover"
+              />
+            </FadeIn>
 
-            <ul className="mt-3 list-disc space-y-2 pl-6 text-left">
-              <li>大学構内には自動販売機がございます。</li>
-              <li>大学周辺にはコンビニエンスストアがございます。</li>
-              <li>大学構内は全面禁煙です。</li>
-              <li>お酒の持ち込み、飲酒はご遠慮ください。</li>
-            </ul>
+            <div className="mx-auto mt-10 max-w-md space-y-6 md:mt-20">
+              <FadeIn>
+                <button
+                  type="button"
+                  onClick={() => setIsAccessOpen((prev) => !prev)}
+                  className="flex w-full items-center justify-center gap-2 border-2 border-orange-400 bg-white/60 px-6 py-4 text-lg text-gray-900 shadow-sm transition hover:bg-orange-50 active:translate-y-1 md:text-xl"
+                >
+                  <span>電車でのアクセス方法</span>
+                  <span className="text-xl text-orange-500">{isAccessOpen ? "△" : "▽"}</span>
+                </button>
+              </FadeIn>
+
+              {isAccessOpen && (
+                <div className="mt-4">
+                  <Access />
+                </div>
+              )}
+
+              <FadeIn>
+                <a
+                  href="https://www.dendai.ac.jp/access/bf-campusmap_tokyosenju.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 flex w-full items-center justify-center gap-2 border-2 border-orange-400 bg-white/60 px-6 py-4 text-lg text-gray-900 shadow-sm transition hover:bg-orange-50 active:translate-y-1 md:text-xl"
+                >
+                  <span>バリアフリーについて</span>
+                  <FaArrowUpRightFromSquare className="text-lg text-orange-500" />
+                </a>
+              </FadeIn>
+            </div>
           </div>
         </div>
       </div>
