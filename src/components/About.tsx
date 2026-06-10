@@ -25,25 +25,23 @@ export default function About() {
                 />
                 <span className="whitespace-nowrap">あだち大学フェスとは</span>
               </h3>
-            </div>
-          </FadeIn>
-
-          <FadeIn>
-            <div className="relative">
-              <p className="text-base leading-relaxed text-black sm:text-lg lg:text-xl">
+              <p className="text-base leading-relaxed text-black sm:text-lg lg:text-xl mt-9">
                 あだち大学フェスとは、足立区内の大学が集まって行う合同学園祭です。
                 各大学の有志団体が集まり、学園祭の宣伝やサークルの紹介、
                 子供向けの工作教室などのワークショップなどを企画しています！
               </p>
-              <div className="mt-6 flex justify-end opacity-30 lg:mt-8">
-                <Image
-                  src="/logo/logo.png"
-                  alt="あだち大学フェスロゴ"
-                  width={320}
-                  height={320}
-                  className="w-36 sm:w-48 lg:w-72"
-                />
-              </div>
+            </div>
+          </FadeIn>
+
+          <FadeIn>
+            <div className="flex justify-end lg:mt-4">
+              <Image
+                src="/logo/logo.png"
+                alt="あだち大学フェスロゴ"
+                width={320}
+                height={320}
+                className="w-36 sm:w-48 lg:w-72"
+              />
             </div>
           </FadeIn>
         </div>
