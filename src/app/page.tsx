@@ -28,8 +28,8 @@ export default function Home() {
           <p className="mt-2 text-4xl font-bold md:text-3xl">8/28(金) 予定</p>
         </div>
       </div>
-      <Recruitment />
       <News />
+      <Recruitment />
       <About />
       <Exhibitors />
       <Visitors />
