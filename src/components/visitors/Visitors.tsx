@@ -12,11 +12,11 @@ export default function Visitors() {
     <section id="visitors" className="px-4 py-12 md:px-8 md:py-24">
       <div className="mx-auto max-w-6xl">
         <FadeIn>
-          <h2 className="text-right text-2xl font-bold text-gray-900 md:text-4xl">
+          <h2 className="text-center text-2xl font-bold text-gray-900 md:text-4xl">
             ご来場のお客様へ
           </h2>
 
-          <div className="mt-4 ml-auto h-0.5 max-w-[320px] bg-orange-400 lg:max-w-[520px]"></div>
+          <div className="mt-4 mx-auto h-0.5 max-w-[320px] bg-orange-400 lg:max-w-[520px]"></div>
         </FadeIn>
 
         <div className="mt-12 grid gap-10 md:mt-20 md:grid-cols-2 md:items-start">
@@ -66,9 +66,11 @@ export default function Visitors() {
                 <button
                   type="button"
                   onClick={() => setIsAccessOpen((prev) => !prev)}
-                  className="block w-full border-b-2 border-orange-400 pb-3 text-left text-lg text-gray-900 transition duration-150 hover:text-orange-500 active:translate-y-1 active:scale-[0.98] md:text-2xl"
+                  className="flex w-full items-center justify-between border-b-2 border-orange-400 pb-3 text-left text-lg text-gray-900 transition duration-150 hover:text-orange-500 active:translate-y-1 active:scale-[0.98] md:text-2xl"
                 >
-                  電車でのアクセス方法
+                  <span>電車でのアクセス方法</span>
+
+                  <span className="text-xl md:text-2xl">{isAccessOpen ? "△" : "▽"}</span>
                 </button>
               </FadeIn>
 
