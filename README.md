@@ -40,7 +40,27 @@ npm run format:check
 npm run lint
 ```
 
-## デプロイ要件（Cloudflare Pages）
+## 実行環境・デプロイ要件
+
+### 実行環境
+
+| 項目           | 内容                                                               |
+| -------------- | ------------------------------------------------------------------ |
+| Node.js        | **22**（`.nvmrc` で固定。CI・本番・ローカルすべてこれに合わせる）  |
+| パッケージ管理 | npm（`package-lock.json` を使用。インストールは `npm ci`）         |
+| ホスティング   | Cloudflare Pages（`@cloudflare/next-on-pages` で静的書き出し）     |
+| ランタイム     | Cloudflare Workers / Edge（Node.js 専用 API は使えない場合がある） |
+| 環境変数       | 現状なし（追加する場合は Cloudflare Pages の設定にも登録が必要）   |
+
+- ローカルで Node を切り替える場合は `.nvmrc` に従ってください（`nvm use` など）。
+- **CI と本番の Node バージョンは `.nvmrc` を単一の基準として揃えています。** バージョンを変えるときは `.nvmrc` を更新すれば両方に反映されます。
+
+### ホスティングの制限（Cloudflare Pages）
+
+- 1ファイルの上限：**25 MiB**
+- 1デプロイあたりのファイル数：**20,000 ファイル**まで
+
+### デプロイ（Cloudflare Pages）
 
 本番は **Cloudflare Pages** 上で [`@cloudflare/next-on-pages`](https://github.com/cloudflare/next-on-pages) を使って**静的サイトとしてビルド・配信**されます（ビルドコマンドは Cloudflare 側に設定されており、リポジトリには含まれていません）。
 
