@@ -147,33 +147,39 @@ export default function ArchiveYearClient({ archive }: Props) {
               <p className="mt-6 leading-relaxed text-gray-700">{selectedExhibitor.description}</p>
 
               <div className="mt-8 flex flex-wrap gap-4">
-                <Link
-                  href={selectedExhibitor.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 rounded-lg bg-orange-500 px-5 py-3 text-white transition hover:bg-orange-600"
-                >
-                  <FaGlobe />
-                  Website
-                </Link>
+                {selectedExhibitor.website && (
+                  <Link
+                    href={selectedExhibitor.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 rounded-lg bg-orange-500 px-5 py-3 text-white transition hover:bg-orange-600"
+                  >
+                    <FaGlobe />
+                    Website
+                  </Link>
+                )}
 
-                <Link
-                  href={selectedExhibitor.x}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 rounded-lg border border-black px-5 py-3 text-black transition hover:bg-black hover:text-white"
-                >
-                  <FaXTwitter />
-                </Link>
+                {selectedExhibitor.x && (
+                  <Link
+                    href={selectedExhibitor.x}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 rounded-lg border border-black px-5 py-3 text-black transition hover:bg-black hover:text-white"
+                  >
+                    <FaXTwitter />
+                  </Link>
+                )}
 
-                <Link
-                  href={selectedExhibitor.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 rounded-lg border border-pink-500 px-5 py-3 text-pink-600 transition hover:bg-pink-500 hover:text-white"
-                >
-                  <FaInstagram />
-                </Link>
+                {selectedExhibitor.instagram && (
+                  <Link
+                    href={selectedExhibitor.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 rounded-lg border border-pink-500 px-5 py-3 text-pink-600 transition hover:bg-pink-500 hover:text-white"
+                  >
+                    <FaInstagram />
+                  </Link>
+                )}
               </div>
 
               <button
