@@ -11,7 +11,7 @@ export const archives = {
       {
         university: "東京電機大学",
         name: "ボランティア部らいふ",
-        image: "/archive/2025/IMG_9352.png",
+        image: "/archive/2025/IMG_9352.jpg",
         shortDescription: "電大生と工作をしよう！(電子工作orエコキャプ工作)",
         description:
           "ボランティア部らいふの学生と一緒に工作をしよう！3色に光るLEDを使った電子工作と、ペットボトルキャップをリサイクルして作るエコなしおりが作れます。(当日どちらか好きな方をお選びいただけます。)",
@@ -35,7 +35,7 @@ export const archives = {
       {
         university: "東京電機大学",
         name: "鉄道研究部",
-        image: "/archive/2025/train.jpeg",
+        image: "/archive/2025/train.jpg",
         shortDescription: "鉄道模型などの展示",
         description: "部で所有しているレイアウトの一部や鉄道部品などを展示します。",
         website: "http://www.sg.dendai.ac.jp/s1g-tekken/index.html",
