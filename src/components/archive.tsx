@@ -34,10 +34,9 @@ export default function ArchiveSection() {
 
               {/* 前面 */}
               <div className="relative bg-orange-500/80 px-6 py-8 text-white shadow-md">
-                <Link href="/archive" className="mt-2 text-1xl font-bold md:text-2xl">
-                  アーカイブはこちら
-                  <span className="transition-transform duration-300 group-hover:translate-x-1">
-                    →
+                <Link href="/archive" className="group mt-2 text-xl font-bold md:text-2xl">
+                  <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+                    アーカイブはこちら→
                   </span>
                 </Link>
               </div>
