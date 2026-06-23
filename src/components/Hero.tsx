@@ -12,7 +12,7 @@ const universities = [
   },
   {
     name: "文教大学",
-    color: "text-yellow-200",
+    color: "text-yellow-300",
     start: { x: "90vw", y: "-45vh" },
     stay: { x: "30vw", y: "-24vh" },
   },
