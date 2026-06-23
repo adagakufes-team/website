@@ -21,18 +21,21 @@ export default function Recruitment() {
                 　現在、あだち大学フェスに
                 <span className="font-bold text-orange-600">出展していただける団体様</span>
                 を募集しています！
-                ※足立区内の5大学（東京藝術大学・東京未来大学・帝京科学大学・東京電機大学・文教大学）の団体のみ。
-                ご興味のある団体様は、
-                <span className="font-bold">「募集案内」</span>
-                をご覧の上、
-                <span className="font-bold">「応募する」</span>
-                よりお申し込みください。
-                ご不明な点がございましたらあだち大学フェス公式メールアドレス(adagakufes@gmail.com)までお問い合わせください。
               </p>
-              <p className=""></p>
+              <p className="">
+                ※足立区内の5大学（東京藝術大学・東京未来大学・帝京科学大学・東京電機大学・文教大学）の団体のみ。
+              </p>
             </div>
-            <p className=""></p>
-            <p className=""></p>
+            <p className="">
+              ご興味のある団体様は、
+              <span className="font-bold">「募集案内」</span>
+              をご覧の上、
+              <span className="font-bold">「応募する」</span>
+              よりお申し込みください。
+            </p>
+            <p className="">
+              ご不明な点がございましたらあだち大学フェス公式メールアドレス(adagakufes@gmail.com)までお問い合わせください。
+            </p>
           </FadeIn>
 
           <FadeIn>
