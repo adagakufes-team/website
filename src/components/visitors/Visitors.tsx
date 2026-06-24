@@ -3,11 +3,13 @@
 import { useState } from "react";
 import Image from "next/image";
 import Access from "./Access";
+import Notice from "./Notice";
 import FadeIn from "@/components/FadeIn";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 export default function Visitors() {
   const [isAccessOpen, setIsAccessOpen] = useState(false);
+  const [isNoticeOpen, setIsNoticeOpen] = useState(false);
 
   return (
     <section id="visitors" className="px-4 py-12 md:px-8 md:py-24">
@@ -17,12 +19,13 @@ export default function Visitors() {
             ご来場のお客様へ
           </h2>
 
-          <div className="mt-4 mx-auto h-0.5 max-w-[320px] bg-orange-400 lg:max-w-[520px]"></div>
+          <div className="mx-auto mt-4 h-0.5 max-w-[320px] bg-orange-400 lg:max-w-[520px]" />
         </FadeIn>
 
         <div className="mt-12 grid gap-10 md:mt-20 md:grid-cols-2 md:items-start">
           {/* 左側 */}
           <div className="space-y-10 md:space-y-16">
+            {/* 場所 */}
             <FadeIn>
               <div>
                 <h3 className="text-2xl font-light text-gray-900 md:text-3xl">場所</h3>
@@ -37,47 +40,70 @@ export default function Visitors() {
               </div>
             </FadeIn>
 
-            <FadeIn>
-              <div>
-                <h3 className="text-2xl font-light text-gray-900 md:text-3xl">
-                  ご来場時の注意事項
-                </h3>
+            {/* モバイル用画像 */}
+            <div className="md:hidden">
+              <FadeIn>
+                <Image
+                  src="/visitors/campus.jpg"
+                  alt="東京電機大学 東京千住キャンパス"
+                  width={900}
+                  height={500}
+                  className="w-full border border-gray-200 object-cover"
+                />
+              </FadeIn>
+            </div>
 
-                <ul className="mt-4 space-y-2 text-base leading-relaxed text-gray-900 md:mt-5 md:text-xl md:leading-snug">
-                  <li>
-                    ・大学には一般来場者用の駐車場・駐輪場はございません。公共交通機関または徒歩でのご来場にご協力ください。
-                  </li>
-                  <li>・ペットの同伴はご遠慮ください。</li>
-                  <li>・車いす・ベビーカーでのご来場が可能です。</li>
-                  <li>
-                    ・ゴミは各自お持ち帰りいただくか、所定のゴミ箱をご利用ください。分別にご協力をお願いします。
-                  </li>
-                  <li>・館内での飲食はご遠慮ください。（蓋付きのお飲み物を除く）</li>
-                  <li>・大学構内へのお酒の持ち込み・飲酒は禁止です。</li>
-                  <li>・大学構内は全面禁煙です。</li>
-                  <li>・お困りの際は、受付または会場スタッフまでお声がけください。</li>
-                </ul>
-              </div>
-            </FadeIn>
+            {/* ご来場時の注意事項 */}
+            {/* スマホ用 */}
+            <div className="md:hidden mx-auto mt-10 max-w-md space-y-6 md:mt-20">
+              <FadeIn>
+                <button
+                  type="button"
+                  onClick={() => setIsNoticeOpen((prev) => !prev)}
+                  className="flex w-full items-center justify-center gap-2 border-2 border-orange-400 bg-white/60 px-6 py-4 text-lg text-gray-900 shadow-sm transition hover:bg-orange-50 active:translate-y-1 md:text-xl"
+                >
+                  <span>ご来場時の注意事項</span>
+
+                  <span className="text-lg text-orange-500">{isNoticeOpen ? "△" : "▽"}</span>
+                </button>
+              </FadeIn>
+
+              {isNoticeOpen && (
+                <div className="mt-4">
+                  <Notice />
+                </div>
+              )}
+            </div>
+
+            {/* PC用 */}
+            <div className="hidden md:block">
+              <FadeIn>
+                <Notice />
+              </FadeIn>
+            </div>
           </div>
+
           {/* 右側 */}
           <div>
-            <FadeIn>
-              <Image
-                src="/visitors/campus.jpg"
-                alt="東京電機大学 東京千住キャンパス"
-                width={900}
-                height={500}
-                className="w-full border border-gray-200 object-cover"
-              />
-            </FadeIn>
+            {/* PC用画像 */}
+            <div className="hidden md:block">
+              <FadeIn>
+                <Image
+                  src="/visitors/campus.jpg"
+                  alt="東京電機大学 東京千住キャンパス"
+                  width={900}
+                  height={500}
+                  className="w-full border border-gray-200 object-cover"
+                />
+              </FadeIn>
+            </div>
 
-            <div className="mx-auto mt-10 max-w-md space-y-6 md:mt-20">
+            <div className="mx-auto mt-1 max-w-md space-y-3 md:space-y-6 md:mt-20">
               <FadeIn>
                 <button
                   type="button"
                   onClick={() => setIsAccessOpen((prev) => !prev)}
-                  className="flex w-full items-center justify-center gap-2 border-2 border-orange-400 bg-white/60 px-6 py-4 text-lg text-gray-900 shadow-sm transition hover:bg-orange-50 active:translate-y-1 md:text-xl"
+                  className="flex w-full items-center justify-center gap-1 border-2 border-orange-400 bg-white/60 px-6 py-4 text-lg text-gray-900 shadow-sm transition hover:bg-orange-50 active:translate-y-1 md:text-xl"
                 >
                   <span>電車でのアクセス方法</span>
                   <span className="text-xl text-orange-500">{isAccessOpen ? "△" : "▽"}</span>
