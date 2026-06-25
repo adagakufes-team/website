@@ -40,15 +40,17 @@ export default function ArchiveSection() {
                 </p>
               </div>
 
-              <Link
-                href="/archive"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-10 flex w-full items-center justify-center gap-2 border-2 border-orange-400 bg-white/60 px-6 py-4 text-lg text-gray-900 shadow-sm transition hover:bg-orange-50 active:translate-y-1 md:mt-0 md:text-xl"
-              >
-                <span>アーカイブはこちら</span>
-                <FaArrowUpRightFromSquare className="text-lg text-orange-500" />
-              </Link>
+              <FadeIn>
+                <Link
+                  href="/archive"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-10 flex w-full items-center justify-center gap-2 border-2 border-orange-400 bg-white/60 px-6 py-4 text-lg text-gray-900 shadow-sm transition hover:bg-orange-50 active:translate-y-1 md:mt-0 md:text-xl"
+                >
+                  <span>アーカイブはこちら</span>
+                  <FaArrowUpRightFromSquare className="text-lg text-orange-500" />
+                </Link>
+              </FadeIn>
             </div>
           </FadeIn>
         </div>
