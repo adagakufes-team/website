@@ -6,7 +6,7 @@ const archives = [
     year: "2025",
     title: "第1回あだち大学フェス",
     date: "2025.08.29",
-    image: "/icon.png",
+    image: "/archive/2025/photo1.jpg",
     url: "/archive/2025",
     description: "足立区の大学が集まり、地域と学生をつなぐイベントとして開催しました。",
   },
@@ -29,9 +29,10 @@ export default function ArchivePage() {
       {/* アーカイブ一覧 */}
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {archives.map((archive) => (
-          <article
+          <Link
             key={archive.year}
-            className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg transition-all duration-300 hover:-translate-y-2 hover:border-orange-300 hover:shadow-2xl"
+            href={archive.url}
+            className="group block overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg transition-all duration-300 hover:-translate-y-2 hover:border-orange-300 hover:shadow-2xl"
           >
             {/* 画像 */}
             <div className="relative h-40 w-full">
@@ -47,18 +48,8 @@ export default function ArchivePage() {
               <p className="mt-2 text-sm text-gray-500">開催日：{archive.date}</p>
 
               <p className="mt-4 text-sm text-gray-600">{archive.description}</p>
-
-              <Link
-                href={archive.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group mt-4 inline-flex items-center gap-2 rounded-lg bg-orange-500 px-4 py-2 font-semibold text-white transition hover:bg-orange-600"
-              >
-                詳細を見る
-                <span className="transition-transform group-hover:translate-x-1">→</span>
-              </Link>
             </div>
-          </article>
+          </Link>
         ))}
       </div>
 
