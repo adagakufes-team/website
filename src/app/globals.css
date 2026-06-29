@@ -13,7 +13,8 @@
 }
 
 html {
-  scroll-padding-top: light;
+  scroll-padding-top: 5rem;
+  color-scheme: light;
 }
 
 body {
