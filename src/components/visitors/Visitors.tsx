@@ -6,11 +6,10 @@ import FadeIn from "@/components/FadeIn";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 const googleMapEmbedUrl =
-  "https://www.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%9B%BB%E6%A9%9F%E5%A4%A7%E5%AD%A6%20%E6%9D%B1%E4%BA%AC%E5%8D%83%E4%BD%8F%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%91%E3%82%B9&output=embed";
+  "https://www.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%9B%BB%E6%A9%9F%E5%A4%A7%E5%AD%A6%20%E6%9D%B1%E4%BA%AC%E5%8D%83%E4%BD%8F%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%91%E3%82%B9%201%E5%8F%B7%E9%A4%A8&output=embed";
 
 const googleMapOpenUrl =
-  "https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%9B%BB%E6%A9%9F%E5%A4%A7%E5%AD%A6%20%E6%9D%B1%E4%BA%AC%E5%8D%83%E4%BD%8F%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%91%E3%82%B9";
-
+  "https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%9B%BB%E6%A9%9F%E5%A4%A7%E5%AD%A6%20%E6%9D%B1%E4%BA%AC%E5%8D%83%E4%BD%8F%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%91%E3%82%B9%201%E5%8F%B7%E9%A4%A8";
 export default function Visitors() {
   const [isNoticeOpen, setIsNoticeOpen] = useState(false);
 
