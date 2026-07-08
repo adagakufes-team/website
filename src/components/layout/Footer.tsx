@@ -25,9 +25,6 @@ export default function Footer() {
               <Link href="/#news">お知らせ</Link>
             </li>
             <li>
-              <Link href="/#recruitment">出展団体募集</Link>
-            </li>
-            <li>
               <Link href="/#about">あだち大学フェスとは</Link>
             </li>
             <li>
@@ -35,6 +32,9 @@ export default function Footer() {
             </li>
             <li>
               <Link href="/#visitors">ご来場の方へ</Link>
+            </li>
+            <li>
+              <Link href="/#archive">アーカイブ</Link>
             </li>
             <li>
               <Link href="/#contact">お問い合わせ</Link>
