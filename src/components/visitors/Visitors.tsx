@@ -1,127 +1,133 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
-import Access from "./Access";
 import Notice from "./Notice";
 import FadeIn from "@/components/FadeIn";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
+const googleMapEmbedUrl =
+  "https://www.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%9B%BB%E6%A9%9F%E5%A4%A7%E5%AD%A6%20%E6%9D%B1%E4%BA%AC%E5%8D%83%E4%BD%8F%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%91%E3%82%B9%201%E5%8F%B7%E9%A4%A8&output=embed";
+
+const googleMapOpenUrl =
+  "https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%9B%BB%E6%A9%9F%E5%A4%A7%E5%AD%A6%20%E6%9D%B1%E4%BA%AC%E5%8D%83%E4%BD%8F%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%91%E3%82%B9%201%E5%8F%B7%E9%A4%A8";
 export default function Visitors() {
-  const [isAccessOpen, setIsAccessOpen] = useState(false);
   const [isNoticeOpen, setIsNoticeOpen] = useState(false);
 
   return (
     <section id="visitors" className="px-4 py-12 md:px-8 md:py-24">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-7xl">
         <FadeIn>
-          <h2 className="text-center text-2xl font-bold text-gray-900 md:text-4xl">
+          <h2 className="text-center text-3xl font-bold text-gray-900 md:text-4xl">
             ご来場のお客様へ
           </h2>
 
-          <div className="mx-auto mt-4 h-0.5 max-w-[320px] bg-orange-400 lg:max-w-[520px]" />
+          <div className="mx-auto mt-6 h-0.5 max-w-[320px] bg-orange-400 md:max-w-[560px]" />
         </FadeIn>
 
-        <div className="mt-12 grid gap-10 md:mt-20 md:grid-cols-2 md:items-start">
-          {/* 左側 */}
-          <div className="space-y-10 md:space-y-16">
-            {/* 場所 */}
+        <div className="mt-12 grid gap-8 md:mt-20 md:grid-cols-[0.85fr_1.15fr] md:items-start md:gap-14">
+          {/* 左側：場所・アクセス */}
+          <div className="space-y-8">
             <FadeIn>
-              <div>
-                <h3 className="text-2xl font-light text-gray-900 md:text-3xl">場所</h3>
+              <section>
+                <h3 className="pl-4 text-xl font-bold text-gray-900 md:text-2xl">場所</h3>
 
-                <p className="mt-4 text-lg leading-relaxed text-gray-900 md:mt-6 md:text-2xl md:leading-tight">
-                  〒<span className="font-bold">120-8551</span>
-                  <br />
-                  東京都足立区千住旭町<span className="font-bold">5</span>番
-                  <br />
-                  一号館<span className="font-bold">100</span>周年ホール
-                </p>
+                <div className="mt-4 text-lg leading-relaxed text-gray-900 md:text-xl">
+                  <p>〒120-8551</p>
+                  <p>東京都足立区千住旭町5番</p>
+                  <p>一号館100周年ホール</p>
+                </div>
+              </section>
+            </FadeIn>
+
+            <FadeIn>
+              <section>
+                <h3 className="pl-4 text-xl font-bold text-gray-900 md:text-2xl">
+                  電車でのアクセス方法
+                </h3>
+
+                <div className="mt-4 space-y-4 text-base leading-relaxed text-gray-700 md:text-lg">
+                  <div>
+                    <p className="text-gray-900">北千住駅 東口（電大口）から徒歩1分</p>
+
+                    <ul className="mt-2 list-disc space-y-1 pl-5">
+                      <li>JR常磐線</li>
+                      <li>東京メトロ日比谷線</li>
+                      <li>東京メトロ千代田線</li>
+                      <li>
+                        東武スカイツリーライン
+                        <br className="md:hidden" />
+                        （東武伊勢崎線・東京メトロ半蔵門線乗入）
+                      </li>
+                      <li>つくばエクスプレス</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <p className="text-gray-900">京成本線 京成関屋駅から徒歩7分</p>
+                  </div>
+                </div>
+              </section>
+            </FadeIn>
+          </div>
+
+          {/* 右側：Google Map・ボタン */}
+          <div>
+            <FadeIn>
+              <div className="overflow-hidden border border-gray-200 bg-white shadow-sm">
+                <div className="flex items-center justify-between border-b border-gray-200 px-4 py-3 md:px-5">
+                  <p className="text-sm font-bold text-gray-900 md:text-base">アクセスマップ</p>
+
+                  <a
+                    href={googleMapOpenUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-xs text-orange-500 transition hover:text-orange-600 md:text-sm"
+                  >
+                    <span>Google Mapで開く</span>
+                    <FaArrowUpRightFromSquare className="text-xs" />
+                  </a>
+                </div>
+
+                <div className="h-[260px] w-full md:h-[380px]">
+                  <iframe
+                    src={googleMapEmbedUrl}
+                    title="東京電機大学 東京千住キャンパスの地図"
+                    className="h-full w-full"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    allowFullScreen
+                  />
+                </div>
               </div>
             </FadeIn>
 
-            {/* モバイル用画像 */}
-            <div className="md:hidden">
+            {/* マップ下のボタン */}
+            <div className="mt-6 space-y-4 md:mt-8 md:space-y-6">
               <FadeIn>
-                <Image
-                  src="/visitors/campus.jpg"
-                  alt="東京電機大学 東京千住キャンパス"
-                  width={900}
-                  height={500}
-                  className="w-full border border-gray-200 object-cover"
-                />
-              </FadeIn>
-            </div>
+                <div>
+                  <button
+                    type="button"
+                    onClick={() => setIsNoticeOpen((prev) => !prev)}
+                    className="flex w-full items-center justify-center gap-2 border-2 border-orange-400 bg-white/60 px-6 py-4 text-lg text-gray-900 shadow-sm transition hover:bg-orange-50 active:translate-y-1 md:text-xl"
+                  >
+                    <span>ご来場時の注意事項</span>
+                    <span className="text-lg text-orange-500">{isNoticeOpen ? "△" : "▽"}</span>
+                  </button>
 
-            {/* ご来場時の注意事項 */}
-            {/* スマホ用 */}
-            <div className="md:hidden mx-auto mt-10 max-w-md space-y-6 md:mt-20">
-              <FadeIn>
-                <button
-                  type="button"
-                  onClick={() => setIsNoticeOpen((prev) => !prev)}
-                  className="flex w-full items-center justify-center gap-2 border-2 border-orange-400 bg-white/60 px-6 py-4 text-lg text-gray-900 shadow-sm transition hover:bg-orange-50 active:translate-y-1 md:text-xl"
-                >
-                  <span>ご来場時の注意事項</span>
-
-                  <span className="text-lg text-orange-500">{isNoticeOpen ? "△" : "▽"}</span>
-                </button>
-              </FadeIn>
-
-              {isNoticeOpen && (
-                <div className="mt-4">
-                  <Notice />
+                  {isNoticeOpen && (
+                    <div className="mt-4 border border-orange-100 bg-white/70 shadow-sm">
+                      <Notice />
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
-
-            {/* PC用 */}
-            <div className="hidden md:block">
-              <FadeIn>
-                <Notice />
               </FadeIn>
-            </div>
-          </div>
-
-          {/* 右側 */}
-          <div>
-            {/* PC用画像 */}
-            <div className="hidden md:block">
-              <FadeIn>
-                <Image
-                  src="/visitors/campus.jpg"
-                  alt="東京電機大学 東京千住キャンパス"
-                  width={900}
-                  height={500}
-                  className="w-full border border-gray-200 object-cover"
-                />
-              </FadeIn>
-            </div>
-
-            <div className="mx-auto mt-1 max-w-md space-y-3 md:space-y-6 md:mt-20">
-              <FadeIn>
-                <button
-                  type="button"
-                  onClick={() => setIsAccessOpen((prev) => !prev)}
-                  className="flex w-full items-center justify-center gap-1 border-2 border-orange-400 bg-white/60 px-6 py-4 text-lg text-gray-900 shadow-sm transition hover:bg-orange-50 active:translate-y-1 md:text-xl"
-                >
-                  <span>電車でのアクセス方法</span>
-                  <span className="text-xl text-orange-500">{isAccessOpen ? "△" : "▽"}</span>
-                </button>
-              </FadeIn>
-
-              {isAccessOpen && (
-                <div className="mt-4">
-                  <Access />
-                </div>
-              )}
 
               <FadeIn>
                 <a
                   href="https://www.dendai.ac.jp/access/bf-campusmap_tokyosenju.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 flex w-full items-center justify-center gap-2 border-2 border-orange-400 bg-white/60 px-6 py-4 text-lg text-gray-900 shadow-sm transition hover:bg-orange-50 active:translate-y-1 md:text-xl"
+                  className="flex w-full items-center justify-center gap-2 border-2 border-orange-400 bg-white/60 px-6 py-4 text-lg text-gray-900 shadow-sm transition hover:bg-orange-50 active:translate-y-1 md:text-xl"
                 >
                   <span>バリアフリーについて</span>
                   <FaArrowUpRightFromSquare className="text-lg text-orange-500" />

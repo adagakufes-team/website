@@ -176,6 +176,20 @@ export const archives = {
       },
     ],
 
-    photos: ["/archive/2025/photo1.jpg", "/archive/2025/photo2.jpg", "/archive/2025/photo3.jpg"],
+    photos: [
+      "/archive/2025/photo1.jpg",
+      "/archive/2025/photo2.jpg",
+      "/archive/2025/photo3.jpg",
+      "/archive/2025/photo4.jpg",
+      "/archive/2025/photo5.jpg",
+      "/archive/2025/photo6.jpg",
+      "/archive/2025/photo7.jpg",
+      "/archive/2025/photo8.jpg",
+      "/archive/2025/photo9.jpg",
+      "/archive/2025/photo10.jpg",
+      "/archive/2025/photo11.jpg",
+      "/archive/2025/photo12.jpg",
+      "/archive/2025/photo13.jpg",
+    ],
   },
 };
