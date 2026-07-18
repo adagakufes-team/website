@@ -118,32 +118,8 @@ export default function ExhibitorsPage() {
             {/* 右 */}
             <div>
               <p className="max-w-3xl text-base leading-relaxed text-gray-800 md:text-lg">
-                現在、あだち大学フェスに出展していただける団体様を募集しています！
-                （足立5大学の団体様のみ）
-                <br />
-                ご興味のある団体様は、このWebページの一番下にある
-                あだち大学フェスのメールアドレスまでご連絡ください。
+                現在、情報を準備しております。公開まで今しばらくお待ちください。
               </p>
-
-              <div className="mt-20 flex flex-col gap-4 md:flex-row md:justify-end">
-                <a
-                  href="https://drive.google.com/file/d/13kNrjJRbI9HmDAKCXP266X8N7YmCkeEx/view"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full md:w-72 border-2 border-orange-400 bg-white/60 px-8 py-3 text-center text-lg text-gray-900 shadow-sm transition hover:bg-orange-50 active:translate-y-1"
-                >
-                  募集案内はこちら
-                </a>
-
-                <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSev1_Bgxim-MMmfXHGo2wLBVJWIVVcMQWyaZimIG7JS_z4nSA/viewform?usp=dialog"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full md:w-72 border-2 border-orange-400 bg-white/60 px-8 py-3 text-center text-lg text-gray-900 shadow-sm transition hover:bg-orange-50 active:translate-y-1"
-                >
-                  応募はこちら
-                </a>
-              </div>
 
               <div className="mt-14 space-y-8">
                 {filteredExhibitors.map((exhibitor) => (
