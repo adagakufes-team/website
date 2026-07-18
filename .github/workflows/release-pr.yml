@@ -1,0 +1,54 @@
+name: Release PR
+
+# develop への push ごとに develop -> main のリリースPRを自動作成/更新する
+on:
+  push:
+    branches: [develop]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  release-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Create or update release PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # main と develop に差分が無ければ何もしない
+          if [ -z "$(git log --oneline origin/main..origin/develop)" ]; then
+            echo "main と develop に差分がないためスキップします"
+            exit 0
+          fi
+
+          # マージ済みの変更一覧（マージコミットを除いた実コミット）
+          COMMITS=$(git log --no-merges --pretty=format:"- %s" origin/main..origin/develop)
+
+          BODY=$(cat <<EOF
+          ## リリース内容
+          \`develop\` にマージ済みの変更を \`main\`（本番）へ反映します。
+
+          ### 含まれる変更
+          $COMMITS
+
+          ---
+          🤖 このPRは develop への push ごとに自動更新されます。
+          EOF
+          )
+
+          PR=$(gh pr list --base main --head develop --state open --json number --jq '.[0].number')
+          if [ -n "$PR" ]; then
+            echo "既存のリリースPR #$PR を更新します"
+            gh pr edit "$PR" --body "$BODY"
+          else
+            echo "リリースPRを新規作成します"
+            gh pr create --base main --head develop \
+              --title "Release: developをmainへ反映" \
+              --body "$BODY"
+          fi
