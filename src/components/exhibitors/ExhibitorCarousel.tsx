@@ -35,7 +35,7 @@ const cards: CarouselCard[] = [
     color: "bg-stone-200",
     borderColor: "border-stone-400",
     accentColor: "bg-stone-700",
-    description: "現在出展してくださる東京藝術大学の団体様をお待ちしております。",
+    description: "現在、情報を準備しております。公開まで今しばらくお待ちください。",
   },
   {
     id: "mirai",
@@ -45,7 +45,7 @@ const cards: CarouselCard[] = [
     color: "bg-red-100",
     borderColor: "border-red-300",
     accentColor: "bg-red-500",
-    description: "現在出展してくださる東京未来大学の団体様をお待ちしております。",
+    description: "現在、情報を準備しております。公開まで今しばらくお待ちください。",
   },
   {
     id: "teika",
@@ -55,7 +55,7 @@ const cards: CarouselCard[] = [
     color: "bg-slate-200",
     borderColor: "border-slate-300",
     accentColor: "bg-slate-700",
-    description: "現在出展してくださる帝京科学大学の団体様をお待ちしております。",
+    description: "現在、情報を準備しております。公開まで今しばらくお待ちください。",
   },
   {
     id: "tdu",
@@ -65,7 +65,7 @@ const cards: CarouselCard[] = [
     color: "bg-blue-100",
     borderColor: "border-blue-300",
     accentColor: "bg-blue-600",
-    description: "現在出展してくださる東京電機大学の団体様をお待ちしております。",
+    description: "現在、情報を準備しております。公開まで今しばらくお待ちください。",
   },
   {
     id: "bunkyo",
@@ -75,7 +75,7 @@ const cards: CarouselCard[] = [
     color: "bg-yellow-100",
     borderColor: "border-yellow-300",
     accentColor: "bg-yellow-600",
-    description: "現在出展してくださる文教大学の団体様をお待ちしております。",
+    description: "現在、情報を準備しております。公開まで今しばらくお待ちください。",
   },
 ];
 
