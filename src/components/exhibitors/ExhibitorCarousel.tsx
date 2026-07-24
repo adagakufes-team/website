@@ -343,9 +343,15 @@ export default function ExhibitorCarousel() {
                   />
                 </div>
 
-                {/* 出展団体名 */}
-                <div className="flex min-h-0 flex-col bg-white px-5 py-4 md:overflow-y-auto md:px-6 md:py-6">
-                  <ul className="space-y-2  text-base leading-relaxed text-gray-900 md:space-y-2.5">
+                {/* 大学名・出展団体名 */}
+                <div className="flex min-h-0 flex-col bg-white px-5 py-4 md:px-6 md:py-6">
+                  {/* 大学名 */}
+                  <h3 className="mb-4 shrink-0 border-b border-orange-300 pb-3 text-lg font-bold text-gray-900 md:text-xl">
+                    {card.id === "all" ? "参加大学" : card.name}
+                  </h3>
+
+                  {/* 出展団体一覧 */}
+                  <ul className="space-y-2 text-sm leading-relaxed text-gray-800 md:min-h-0 md:space-y-2.5 md:overflow-y-auto md:pr-1 md:text-base">
                     {visibleOrganizations.map((organization, organizationIndex) => (
                       <li key={`${organization}-${organizationIndex}`} className="break-words">
                         {organization}
