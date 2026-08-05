@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { FaPause, FaPlay } from "react-icons/fa";
 
 type CarouselCard = {
@@ -9,148 +10,252 @@ type CarouselCard = {
   name: string;
   shortName: string;
   href: string;
-  color: string;
-  borderColor: string;
-  accentColor: string;
-  description: string;
+  image: string;
+  organizations: string[];
+  linkText: string;
   isPdf?: boolean;
 };
 
 const cards: CarouselCard[] = [
   {
     id: "all",
-    name: "ALL",
+    name: "すべての大学",
     shortName: "All",
     href: "/exhibitors?university=all",
-    color: "bg-orange-100",
-    borderColor: "border-orange-400",
-    accentColor: "bg-orange-500",
-    description: "すべての出展団体を見ることができます。",
+    image: "/logo/logo.png",
+    organizations: ["東京藝術大学", "東京未来大学", "帝京科学大学", "東京電機大学", "文教大学"],
+    linkText: "すべての出展を見る",
   },
   {
     id: "geidai",
     name: "東京藝術大学",
     shortName: "藝",
     href: "/exhibitors?university=geidai",
-    color: "bg-stone-200",
-    borderColor: "border-stone-400",
-    accentColor: "bg-stone-700",
-    description: "現在、情報を準備しております。公開まで今しばらくお待ちください。",
+    image: "/exhibitors/geidai.jpg",
+    organizations: ["プロジェクト創作　後藤研究室", "プロジェクト音響　亀川研究室"],
+    linkText: "東京藝術大学からの出展を見る",
   },
   {
     id: "mirai",
     name: "東京未来大学",
     shortName: "未",
     href: "/exhibitors?university=mirai",
-    color: "bg-red-100",
-    borderColor: "border-red-300",
-    accentColor: "bg-red-500",
-    description: "現在、情報を準備しております。公開まで今しばらくお待ちください。",
+    image: "/exhibitors/mirai.jpg",
+    organizations: [
+      "茶道サークル",
+      "小谷ゼミ",
+      "マジックサークル",
+      "TFU こども心理学部所属学生有志団体",
+    ],
+    linkText: "東京未来大学からの出展を見る",
   },
   {
     id: "teika",
     name: "帝京科学大学",
     shortName: "帝",
     href: "/exhibitors?university=teika",
-    color: "bg-slate-200",
-    borderColor: "border-slate-300",
-    accentColor: "bg-slate-700",
-    description: "現在、情報を準備しております。公開まで今しばらくお待ちください。",
+    image: "/exhibitors/teikyo.jpg",
+    organizations: ["水圏同好会"],
+    linkText: "帝京科学大学からの出展を見る",
   },
   {
     id: "tdu",
     name: "東京電機大学",
     shortName: "電",
     href: "/exhibitors?university=tdu",
-    color: "bg-blue-100",
-    borderColor: "border-blue-300",
-    accentColor: "bg-blue-600",
-    description: "現在、情報を準備しております。公開まで今しばらくお待ちください。",
+    image: "/exhibitors/tdu.jpg",
+    organizations: [
+      "ボランティア部らいふ",
+      "漫画研究部",
+      "電子技術研究部",
+      "一部写真部",
+      "自動制御研究部",
+      "天文研究部",
+    ],
+    linkText: "東京電機大学からの出展を見る",
   },
   {
     id: "bunkyo",
     name: "文教大学",
     shortName: "文",
     href: "/exhibitors?university=bunkyo",
-    color: "bg-yellow-100",
-    borderColor: "border-yellow-300",
-    accentColor: "bg-yellow-600",
-    description: "現在、情報を準備しております。公開まで今しばらくお待ちください。",
+    image: "/exhibitors/bunkyo.jpg",
+    organizations: ["青木洋高ゼミナール"],
+    linkText: "文教大学からの出展を見る",
   },
 ];
 
 const AUTO_PLAY_TIME = 5000;
 
 export default function ExhibitorCarousel() {
+  const carouselRef = useRef<HTMLDivElement>(null);
+
   const [activeIndex, setActiveIndex] = useState(1);
-  const [isMobile, setIsMobile] = useState(false);
+  const [carouselWidth, setCarouselWidth] = useState(1200);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [progress, setProgress] = useState(0);
 
+  const isMobile = carouselWidth < 768;
+
   const goNext = useCallback(() => {
-    setActiveIndex((prev) => (prev + 1) % cards.length);
+    setActiveIndex((previousIndex) => (previousIndex + 1) % cards.length);
   }, []);
 
   const goPrev = useCallback(() => {
-    setActiveIndex((prev) => (prev - 1 + cards.length) % cards.length);
+    setActiveIndex((previousIndex) => (previousIndex - 1 + cards.length) % cards.length);
   }, []);
 
   const moveToCard = (index: number) => {
     setActiveIndex(index);
   };
 
+  /*
+   * カルーセルの実際の横幅を取得します。
+   */
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+    const carouselElement = carouselRef.current;
+
+    if (!carouselElement) return;
+
+    const updateCarouselWidth = () => {
+      setCarouselWidth(carouselElement.getBoundingClientRect().width);
     };
 
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
+    updateCarouselWidth();
 
-    return () => window.removeEventListener("resize", checkMobile);
+    const resizeObserver = new ResizeObserver(updateCarouselWidth);
+
+    resizeObserver.observe(carouselElement);
+
+    return () => {
+      resizeObserver.disconnect();
+    };
   }, []);
 
+  /*
+   * 自動切り替えと進捗バー
+   */
   useEffect(() => {
     if (!isAutoPlaying) return;
 
     const startedAt = Date.now();
 
-    const progressTimer = setInterval(() => {
+    const progressTimer = window.setInterval(() => {
       const elapsed = Date.now() - startedAt;
+
       setProgress(Math.min((elapsed / AUTO_PLAY_TIME) * 100, 100));
     }, 50);
 
-    const slideTimer = setTimeout(() => {
+    const slideTimer = window.setTimeout(() => {
       goNext();
     }, AUTO_PLAY_TIME);
 
     return () => {
-      clearInterval(progressTimer);
-      clearTimeout(slideTimer);
+      window.clearInterval(progressTimer);
+      window.clearTimeout(slideTimer);
     };
   }, [activeIndex, goNext, isAutoPlaying]);
 
+  /*
+   * 中央カードの横幅
+   */
+  const cardWidth = isMobile
+    ? Math.max(carouselWidth - 32, 280)
+    : Math.min(700, Math.max(carouselWidth - 320, 600));
+
+  /*
+   * 左右カードの大きさ
+   */
+  const sideScale = isMobile ? 0.9 : 0.92;
+
+  /*
+   * カード間の空白をなくします。
+   *
+   * 中央カードの端と左右カードの端が、
+   * ほぼ隣り合う位置になります。
+   */
+  const cardGap = isMobile ? 16 : 32;
+
+  const sideOffset = cardWidth / 2 + (cardWidth * sideScale) / 2 + cardGap;
+
+  const positions: Record<
+    number,
+    {
+      x: number;
+      scale: number;
+      zIndex: number;
+    }
+  > = {
+    [-2]: {
+      x: -sideOffset * 2,
+      scale: 0.86,
+      zIndex: 0,
+    },
+    [-1]: {
+      x: -sideOffset,
+      scale: sideScale,
+      zIndex: 1,
+    },
+    [0]: {
+      x: 0,
+      scale: 1,
+      zIndex: 10,
+    },
+    [1]: {
+      x: sideOffset,
+      scale: sideScale,
+      zIndex: 1,
+    },
+    [2]: {
+      x: sideOffset * 2,
+      scale: 0.86,
+      zIndex: 0,
+    },
+  };
+
+  const arrowOffset = isMobile ? 14 : 22;
+
   return (
-    <div className="relative mx-auto mt-10 h-[430px] w-full md:mt-14 md:h-[620px]">
+    /*
+     * 親要素にmax-widthやpaddingがあっても、
+     * w-screenでブラウザ画面いっぱいに広げます。
+     *
+     * overflow-hiddenで画面外のカードを隠します。
+     */
+    <div
+      ref={carouselRef}
+      className="relative left-1/2 mt-8 h-[540px] w-screen -translate-x-1/2 overflow-hidden md:mt-10 md:h-[500px]"
+    >
+      {/* 前へボタン */}
       <button
         type="button"
         onClick={goPrev}
-        className="absolute left-3 top-[42%] z-50 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border-2 border-orange-400 bg-white/95 text-2xl text-orange-500 shadow-md transition hover:scale-110 hover:bg-orange-50 active:scale-95 md:left-[calc(50%-520px)] md:h-14 md:w-14 md:text-3xl"
+        className="absolute z-50 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border-2 border-orange-400 bg-white/95 text-2xl text-orange-500 shadow-md transition hover:scale-110 hover:bg-orange-50 active:scale-95 md:h-12 md:w-12 md:text-3xl"
+        style={{
+          top: isMobile ? "110px" : "175px",
+          left: `calc(50% - ${cardWidth / 2}px + ${arrowOffset}px)`,
+        }}
         aria-label="前のカードへ"
       >
         ⇦
       </button>
 
+      {/* 次へボタン */}
       <button
         type="button"
         onClick={goNext}
-        className="absolute right-3 top-[42%] z-50 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border-2 border-orange-400 bg-white/95 text-2xl text-orange-500 shadow-md transition hover:scale-110 hover:bg-orange-50 active:scale-95 md:right-[calc(50%-520px)] md:h-14 md:w-14 md:text-3xl"
+        className="absolute z-50 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border-2 border-orange-400 bg-white/95 text-2xl text-orange-500 shadow-md transition hover:scale-110 hover:bg-orange-50 active:scale-95 md:h-12 md:w-12 md:text-3xl"
+        style={{
+          top: isMobile ? "110px" : "175px",
+          right: `calc(50% - ${cardWidth / 2}px + ${arrowOffset}px)`,
+        }}
         aria-label="次のカードへ"
       >
         ⇨
       </button>
 
-      <div className="relative mx-auto h-full w-full select-none">
+      {/* カード表示領域 */}
+      <div className="relative h-[465px] w-full select-none md:h-[420px]">
         {cards.map((card, index) => {
           const rawOffset = (index - activeIndex + cards.length) % cards.length;
 
@@ -160,33 +265,31 @@ export default function ExhibitorCarousel() {
             offset = rawOffset - cards.length;
           }
 
+          /*
+           * 偶数枚のとき、真裏にあるカードの
+           * 表示方向を固定します。
+           */
           if (cards.length % 2 === 0 && rawOffset === cards.length / 2) {
             offset = 2;
           }
 
-          if (Math.abs(offset) > 2) return null;
+          if (Math.abs(offset) > 2) {
+            return null;
+          }
 
-          const pcPositions = {
-            "-2": { x: -860, y: -45, scale: 0.88, z: 0 },
-            "-1": { x: -430, y: -45, scale: 0.92, z: 1 },
-            "0": { x: 0, y: -45, scale: 1, z: 10 },
-            "1": { x: 430, y: -45, scale: 0.92, z: 1 },
-            "2": { x: 860, y: -45, scale: 0.88, z: 0 },
-          } as const;
+          const position = positions[offset];
 
-          const spPositions = {
-            "-2": { x: -420, y: -40, scale: 0.84, z: 0 },
-            "-1": { x: -210, y: -40, scale: 0.88, z: 1 },
-            "0": { x: 0, y: -40, scale: 1, z: 10 },
-            "1": { x: 210, y: -40, scale: 0.88, z: 1 },
-            "2": { x: 420, y: -40, scale: 0.84, z: 0 },
-          } as const;
-
-          const position = isMobile
-            ? spPositions[String(offset) as keyof typeof spPositions]
-            : pcPositions[String(offset) as keyof typeof pcPositions];
+          if (!position) {
+            return null;
+          }
 
           const isActive = offset === 0;
+
+          const organizations = card.organizations.filter(
+            (organization) => organization.trim() !== "",
+          );
+
+          const visibleOrganizations = organizations;
 
           return (
             <Link
@@ -194,51 +297,90 @@ export default function ExhibitorCarousel() {
               href={card.href}
               target={card.isPdf ? "_blank" : undefined}
               rel={card.isPdf ? "noopener noreferrer" : undefined}
-              className={`absolute left-1/2 top-1/2 block transition-all duration-700 ease-in-out ${
-                isActive ? "pointer-events-auto" : "pointer-events-none"
+              tabIndex={isActive ? 0 : -1}
+              aria-hidden={!isActive}
+              aria-label={card.linkText}
+              className={`absolute left-1/2 top-0 block origin-top transition-all duration-700 ease-in-out ${
+                isActive ? "pointer-events-auto cursor-pointer" : "pointer-events-none"
               }`}
               style={{
-                zIndex: position.z,
-                opacity: Math.abs(offset) === 2 ? 0 : 1,
-                filter: "none",
+                width: `${cardWidth}px`,
+                zIndex: position.zIndex,
+                opacity: Math.abs(offset) === 2 ? 0 : isActive ? 1 : 0.62,
+                filter: isActive ? "none" : "brightness(0.92)",
                 transform: `
-                  translate(-50%, -50%)
+                  translateX(-50%)
                   translateX(${position.x}px)
-                  translateY(${position.y}px)
                   scale(${position.scale})
                 `,
               }}
             >
-              <div
-                className={`flex h-[280px] w-[195px] flex-col justify-between rounded-2xl border-4 ${card.borderColor} ${card.color} p-4 text-gray-900 shadow-2xl md:h-[420px] md:w-[320px] md:p-7`}
-              >
-                <div>
-                  <h3 className="text-center text-lg font-bold leading-relaxed md:text-3xl">
-                    {card.name}
+              {/*
+               * カード本体
+               *
+               * 通常画像にはobject-coverを使うため、
+               * 画像横に空白は発生しません。
+               */}
+              <article className="grid w-full grid-rows-[220px_auto] overflow-hidden bg-white shadow-xl transition-shadow duration-300 hover:shadow-2xl md:h-[350px] md:grid-cols-[minmax(0,1fr)_210px] md:grid-rows-[1fr]">
+                {/* 大学の写真 */}
+                <div
+                  className={`relative min-h-0 overflow-hidden ${
+                    card.id === "all" ? "bg-white" : "bg-gray-100"
+                  }`}
+                >
+                  <Image
+                    src={card.image}
+                    alt={`${card.name}の写真`}
+                    fill
+                    priority={isActive}
+                    quality={95}
+                    sizes="(max-width: 767px) calc(100vw - 32px), 590px"
+                    className={
+                      card.id === "all"
+                        ? "object-contain p-14 md:p-20"
+                        : "object-cover object-center"
+                    }
+                  />
+                </div>
+
+                {/* 大学名・出展団体名 */}
+                <div className="flex min-h-0 flex-col bg-white px-5 py-4 md:px-6 md:py-6">
+                  {/* 大学名 */}
+                  <h3 className="mb-4 shrink-0 border-b border-orange-300 pb-3 text-lg font-bold text-gray-900 md:text-xl">
+                    {card.id === "all" ? "参加大学" : card.name}
                   </h3>
 
-                  <div className={`mx-auto mt-3 h-0.5 w-20 md:mt-4 md:w-32 ${card.accentColor}`} />
+                  {/* 出展団体一覧 */}
+                  <ul className="space-y-2 text-sm leading-relaxed text-gray-800 md:min-h-0 md:space-y-2.5 md:overflow-y-auto md:pr-1 md:text-base">
+                    {visibleOrganizations.map((organization, organizationIndex) => (
+                      <li key={`${organization}-${organizationIndex}`} className="break-words">
+                        {organization}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
+              </article>
 
-                <div className="rounded-2xl border-2 border-gray-900/80 bg-white/70 px-3 py-4 text-[11px] leading-relaxed md:px-5 md:py-6 md:text-base">
-                  {card.description}
-                </div>
+              {/* カード外のリンク案内 */}
+              <div
+                className={`mt-3 transition-opacity duration-300 ${
+                  isActive ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                <p className="px-1 text-sm leading-relaxed text-gray-700 md:text-base">
+                  {card.linkText}
+                </p>
 
-                <div>
-                  <p className="text-right text-2xl font-bold text-white drop-shadow-[1px_1px_0_rgba(0,0,0,0.8)] md:text-4xl">
-                    View
-                  </p>
-
-                  <div className={`ml-auto mt-2 h-0.5 w-16 md:w-28 ${card.accentColor}`} />
-                </div>
+                <div className="mt-2 h-px w-full bg-sky-700/50" />
               </div>
             </Link>
           );
         })}
       </div>
 
-      <div className="absolute bottom-4 left-1/2 z-50 flex -translate-x-1/2 items-center gap-4 rounded-full bg-white/90 px-5 py-2 shadow-md backdrop-blur md:bottom-8 md:px-6">
-        <div className="flex items-center gap-3">
+      {/* カード切り替えインジケーター */}
+      <div className="absolute bottom-2 left-1/2 z-50 flex max-w-[calc(100%-24px)] -translate-x-1/2 items-center gap-3 rounded-full bg-white/95 px-4 py-2 shadow-md backdrop-blur md:gap-4 md:px-6">
+        <div className="flex items-center gap-2 md:gap-3">
           {cards.map((card, index) => {
             const isActive = index === activeIndex;
 
@@ -258,7 +400,7 @@ export default function ExhibitorCarousel() {
                   {card.shortName}
                 </span>
 
-                <span className="relative block h-0.5 w-7 overflow-hidden rounded-full bg-gray-300 md:w-10">
+                <span className="relative block h-0.5 w-6 overflow-hidden rounded-full bg-gray-300 md:w-10">
                   <span
                     className="absolute left-0 top-0 h-full rounded-full bg-orange-500"
                     style={{
@@ -273,10 +415,13 @@ export default function ExhibitorCarousel() {
 
         <div className="h-5 w-px bg-gray-300" />
 
+        {/* 自動再生・停止 */}
         <button
           type="button"
-          onClick={() => setIsAutoPlaying((prev) => !prev)}
-          className="flex h-6 w-6 items-center justify-center text-gray-700 transition hover:text-orange-500"
+          onClick={() => {
+            setIsAutoPlaying((previous) => !previous);
+          }}
+          className="flex h-6 w-6 shrink-0 items-center justify-center text-gray-700 transition hover:text-orange-500"
           aria-label={isAutoPlaying ? "自動切り替えを停止する" : "自動切り替えを再開する"}
           aria-pressed={!isAutoPlaying}
         >
