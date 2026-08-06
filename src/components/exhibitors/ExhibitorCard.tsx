@@ -34,10 +34,6 @@ export default function ExhibitorCard({ exhibitor, onClick }: ExhibitorCardProps
         <p className="mt-4 line-clamp-3 leading-relaxed text-gray-700">
           {exhibitor.shortDescription}
         </p>
-
-        <span className="mt-auto w-fit rounded-lg bg-orange-500 px-4 py-2 text-white transition group-hover:bg-orange-600">
-          続きを読む
-        </span>
       </div>
     </button>
   );
