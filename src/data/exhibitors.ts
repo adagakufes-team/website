@@ -6,7 +6,7 @@ export const exhibitors: Exhibitor[] = [
     university: "mirai",
     universityName: "東京未来大学",
     name: "茶道サークル",
-    image: "/exhibitors/information/sadou.png",
+    image: "/exhibitors/information/sadou.jpg",
     imageAlt: "茶道サークルの企画画像",
     shortDescription: "茶道〜表千家〜",
     description:
@@ -18,7 +18,7 @@ export const exhibitors: Exhibitor[] = [
     university: "teika",
     universityName: "帝京科学大学",
     name: "水圏同好会",
-    image: "/exhibitors/information/suiken.png",
+    image: "/exhibitors/information/suiken.jpg",
     imageAlt: "水圏同好会の企画画像",
     shortDescription: "足立区の身近な水辺の生き物について知ろう",
     description:
@@ -31,7 +31,7 @@ export const exhibitors: Exhibitor[] = [
     university: "mirai",
     universityName: "東京未来大学",
     name: "マジックサークル",
-    image: "/exhibitors/information/mirai-magic.png",
+    image: "/exhibitors/information/mirai-magic.jpg",
     imageAlt: "未来大学マジックサークルの企画画像",
     shortDescription: "カードマジック「不思議なマジックショーへ」",
     description:
@@ -43,7 +43,7 @@ export const exhibitors: Exhibitor[] = [
     university: "tdu",
     universityName: "東京電機大学",
     name: "東京電機大学　天文学研究部",
-    image: "/exhibitors/information/tenmon.png",
+    image: "/exhibitors/information/tenmon.jpg",
     imageAlt: "天文学研究部の企画画像",
     shortDescription: "電大天文部☆望遠鏡と活動写真",
     description:
@@ -55,7 +55,7 @@ export const exhibitors: Exhibitor[] = [
     university: "bunkyo",
     universityName: "文教大学",
     name: "文教大学 青木洋高ゼミナール",
-    image: "/exhibitors/information/aoki.png",
+    image: "/exhibitors/information/aoki.jpg",
     imageAlt: "青木ゼミの企画画像",
     shortDescription: "学生と楽しむ！水引ワークショップ",
     description:
@@ -67,7 +67,7 @@ export const exhibitors: Exhibitor[] = [
     university: "geidai",
     universityName: "東京藝術大学",
     name: "プロジェクト音響 亀川研究室",
-    image: "/exhibitors/information/kamekawa.png",
+    image: "/exhibitors/information/kamekawa.jpg",
     imageAlt: "亀川研究室の企画画像",
     shortDescription: "音に包まれる！立体音響体験",
     description:
@@ -78,7 +78,7 @@ export const exhibitors: Exhibitor[] = [
     university: "tdu",
     universityName: "東京電機大学",
     name: "電子技術研究部",
-    image: "/exhibitors/information/giken.png",
+    image: "/exhibitors/information/giken.jpg",
     imageAlt: "電子技術研究部の企画画像",
     shortDescription: "電子技研の活動展示＆簡単手巻きスピーカー作り体験会",
     description:
@@ -91,7 +91,7 @@ export const exhibitors: Exhibitor[] = [
     university: "mirai",
     universityName: "東京未来大学",
     name: "TFU こども心理学部学生有志団体",
-    image: "/exhibitors/information/sinri.png",
+    image: "/exhibitors/information/sinri.jpg",
     imageAlt: "TFU こども心理学部学生有志団体の企画画像",
     shortDescription: "心理学っておもしろい！～心と身体の不思議を体験してみよう～",
     description:
@@ -102,7 +102,7 @@ export const exhibitors: Exhibitor[] = [
     university: "tdu",
     universityName: "東京電機大学",
     name: "自動制御研究部",
-    image: "/exhibitors/information/zidou.png",
+    image: "/exhibitors/information/zidou.jpg",
     imageAlt: "自動制御研究部の企画画像",
     shortDescription: "競技用ロボットの展示",
     description:
@@ -115,7 +115,7 @@ export const exhibitors: Exhibitor[] = [
     university: "geidai",
     universityName: "東京藝術大学",
     name: "後藤研究室",
-    image: "/exhibitors/information/gotou.png",
+    image: "/exhibitors/information/gotou.jpg",
     imageAlt: "後藤研究室の企画画像",
     shortDescription: "The String",
     description:
@@ -126,7 +126,7 @@ export const exhibitors: Exhibitor[] = [
     university: "tdu",
     universityName: "東京電機大学",
     name: "ボランティア部らいふ",
-    image: "/exhibitors/information/life.png",
+    image: "/exhibitors/information/life.jpg",
     imageAlt: "ボランティア部らいふの企画画像",
     shortDescription: "エコで作ろう未来のアート",
     description:
@@ -140,7 +140,7 @@ export const exhibitors: Exhibitor[] = [
     university: "tdu",
     universityName: "東京電機大学",
     name: "漫画研究部",
-    image: "/exhibitors/information/manken.png",
+    image: "/exhibitors/information/manken.jpg",
     imageAlt: "漫画研究部の企画画像",
     shortDescription: "イラスト展示",
     description:
@@ -152,7 +152,7 @@ export const exhibitors: Exhibitor[] = [
     university: "tdu",
     universityName: "東京電機大学",
     name: "一部写真部",
-    image: "/exhibitors/information/picture.png",
+    image: "/exhibitors/information/picture.jpg",
     imageAlt: "一部写真部の企画画像",
     shortDescription: "カメラで写し出す写真の世界",
     description:
@@ -165,7 +165,7 @@ export const exhibitors: Exhibitor[] = [
     university: "mirai",
     universityName: "東京未来大学",
     name: "小谷ゼミ",
-    image: "/exhibitors/information/kotani.png",
+    image: "/exhibitors/information/kotani.jpg",
     imageAlt: "青木洋高ゼミナールの企画画像",
     shortDescription: "マラカス作り",
     description:
