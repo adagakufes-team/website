@@ -102,9 +102,10 @@ export default function ExhibitorModal({ exhibitor, onClose }: ExhibitorModalPro
                     href={exhibitor.website}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`${exhibitor.name}の公式サイトを見る`}
                     className="flex items-center gap-2 rounded-lg bg-orange-500 px-5 py-3 text-white transition hover:bg-orange-600"
                   >
-                    <FaGlobe />
+                    <FaGlobe aria-hidden="true" />
                   </a>
                 )}
 
@@ -116,7 +117,7 @@ export default function ExhibitorModal({ exhibitor, onClose }: ExhibitorModalPro
                     aria-label={`${exhibitor.name}のXを見る`}
                     className="flex items-center gap-2 rounded-lg border border-black px-5 py-3 text-black transition hover:bg-black hover:text-white"
                   >
-                    <FaXTwitter />
+                    <FaXTwitter aria-hidden="true" />
                   </a>
                 )}
 
@@ -128,7 +129,7 @@ export default function ExhibitorModal({ exhibitor, onClose }: ExhibitorModalPro
                     aria-label={`${exhibitor.name}のInstagramを見る`}
                     className="flex items-center gap-2 rounded-lg border border-pink-500 px-5 py-3 text-pink-600 transition hover:bg-pink-500 hover:text-white"
                   >
-                    <FaInstagram />
+                    <FaInstagram aria-hidden="true" />
                   </a>
                 )}
               </div>
