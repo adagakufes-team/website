@@ -102,57 +102,22 @@ export default function ExhibitorsClient() {
               </div>
             </div>
           </div>
+
           {/* 右：出展団体カード */}
           <div className="min-w-0">
-            {selectedUniversity === "all" ? (
-              /* 「すべて」の場合：大学ごとに分けて表示 */
-              <div className="space-y-14">
-                {universities
-                  .filter((university) => university.id !== "all")
-                  .map((university) => {
-                    const universityExhibitors = exhibitors.filter(
-                      (exhibitor) => exhibitor.university === university.id,
-                    );
-
-                    return (
-                      <section key={university.id}>
-                        <h2 className="text-xl font-normal text-gray-900 md:text-xl">
-                          {university.name}
-                        </h2>
-
-                        <div className="mt-3 h-px w-full bg-orange-400" />
-
-                        <div className="mt-6">
-                          {universityExhibitors.length > 0 ? (
-                            <ExhibitorList exhibitors={universityExhibitors} />
-                          ) : (
-                            <p className="text-base text-gray-700">
-                              現在、情報を準備しております。
-                            </p>
-                          )}
-                        </div>
-                      </section>
-                    );
-                  })}
-              </div>
-            ) : (
-              /* 大学を選択した場合：選択した大学だけ表示 */
-              <section>
+            {selectedUniversity !== "all" && (
+              <>
                 <h2 className="text-xl font-normal text-gray-900 md:text-2xl">
                   {selectedUniversityName}
                 </h2>
 
                 <div className="mt-3 h-px w-full bg-orange-400" />
-
-                <div className="mt-6">
-                  {filteredExhibitors.length > 0 ? (
-                    <ExhibitorList exhibitors={filteredExhibitors} />
-                  ) : (
-                    <p className="text-base text-gray-700">現在、情報を準備しております。</p>
-                  )}
-                </div>
-              </section>
+              </>
             )}
+
+            <div className={selectedUniversity === "all" ? "" : "mt-6"}>
+              <ExhibitorList exhibitors={filteredExhibitors} />
+            </div>
           </div>
         </section>
       </div>

@@ -4,6 +4,8 @@ import Image from "next/image";
 import { useEffect, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import type { Exhibitor } from "@/types/exhibitor";
+import { FaGlobe, FaInstagram } from "react-icons/fa";
+import { FaXTwitter, FaXmark } from "react-icons/fa6";
 
 type ExhibitorModalProps = {
   exhibitor: Exhibitor;
@@ -43,7 +45,6 @@ export default function ExhibitorModal({ exhibitor, onClose }: ExhibitorModalPro
   if (!isClient) {
     return null;
   }
-
   return createPortal(
     <div
       className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 p-4"
@@ -53,81 +54,87 @@ export default function ExhibitorModal({ exhibitor, onClose }: ExhibitorModalPro
         role="dialog"
         aria-modal="true"
         aria-labelledby={`exhibitor-title-${exhibitor.id}`}
-        className="relative max-h-[90dvh] w-full max-w-3xl overflow-y-auto rounded-2xl bg-white shadow-2xl"
+        className="relative flex max-h-[90dvh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl"
         onClick={(event) => event.stopPropagation()}
       >
-        {/* 閉じるボタン */}
+        {/* 右上の閉じるボタン */}
         <button
           type="button"
           onClick={onClose}
           aria-label="詳細を閉じる"
-          className="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white text-2xl text-gray-700 shadow-md transition hover:bg-orange-50"
+          className="absolute right-4 top-4 z-20 flex h-11 w-11 items-center justify-center rounded-full bg-white/95 text-gray-800 shadow-md transition hover:bg-orange-50 hover:text-orange-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
         >
-          ×
+          <FaXmark aria-hidden="true" className="text-2xl" />
         </button>
 
-        {/* 画像 */}
-        <div className="relative h-52 w-full overflow-hidden rounded-t-2xl bg-white sm:h-60">
-          <Image
-            src={exhibitor.image}
-            alt={exhibitor.imageAlt}
-            fill
-            sizes="(max-width: 768px) 100vw, 768px"
-            className="object-contain p-4"
-          />
-        </div>
+        {/* ここだけスクロールさせる */}
+        <div className="overflow-y-auto">
+          {/* 画像 */}
+          <div className="relative h-64 w-full overflow-hidden bg-white sm:h-80">
+            <Image
+              src={exhibitor.image}
+              alt={exhibitor.imageAlt}
+              fill
+              sizes="(max-width: 768px) 100vw, 768px"
+              className="object-contain p-2"
+            />
+          </div>
 
-        {/* 詳細 */}
-        <div className="p-5 sm:p-7">
-          <p className="text-sm font-semibold text-orange-600">{exhibitor.universityName}</p>
+          {/* 内容 */}
+          <div className="p-6 sm:p-8">
+            <p className="text-sm font-semibold text-orange-500">{exhibitor.universityName}</p>
 
-          <h2
-            id={`exhibitor-title-${exhibitor.id}`}
-            className="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl"
-          >
-            {exhibitor.name}
-          </h2>
+            <h2
+              id={`exhibitor-title-${exhibitor.id}`}
+              className="mt-2 text-3xl font-bold text-gray-900"
+            >
+              {exhibitor.name}
+            </h2>
 
-          <p className="mt-4 whitespace-pre-line leading-relaxed text-gray-700">
-            {exhibitor.description}
-          </p>
+            <p className="mt-6 whitespace-pre-line leading-relaxed text-gray-700">
+              {exhibitor.description}
+            </p>
 
-          {(exhibitor.website || exhibitor.x || exhibitor.instagram) && (
-            <div className="mt-6 flex flex-wrap gap-3">
-              {exhibitor.website && (
-                <a
-                  href={exhibitor.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white transition hover:bg-orange-600"
-                >
-                  Website
-                </a>
-              )}
+            {(exhibitor.website || exhibitor.x || exhibitor.instagram) && (
+              <div className="mt-8 flex flex-wrap gap-4">
+                {exhibitor.website && (
+                  <a
+                    href={exhibitor.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${exhibitor.name}の公式サイトを見る`}
+                    className="flex items-center gap-2 rounded-lg bg-orange-500 px-5 py-3 text-white transition hover:bg-orange-600"
+                  >
+                    <FaGlobe aria-hidden="true" />
+                  </a>
+                )}
 
-              {exhibitor.x && (
-                <a
-                  href={exhibitor.x}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-lg border border-gray-400 px-5 py-2.5 font-semibold text-gray-900 transition hover:bg-gray-100"
-                >
-                  X
-                </a>
-              )}
+                {exhibitor.x && (
+                  <a
+                    href={exhibitor.x}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${exhibitor.name}のXを見る`}
+                    className="flex items-center gap-2 rounded-lg border border-black px-5 py-3 text-black transition hover:bg-black hover:text-white"
+                  >
+                    <FaXTwitter aria-hidden="true" />
+                  </a>
+                )}
 
-              {exhibitor.instagram && (
-                <a
-                  href={exhibitor.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-lg border border-pink-400 px-5 py-2.5 font-semibold text-pink-600 transition hover:bg-pink-50"
-                >
-                  Instagram
-                </a>
-              )}
-            </div>
-          )}
+                {exhibitor.instagram && (
+                  <a
+                    href={exhibitor.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${exhibitor.name}のInstagramを見る`}
+                    className="flex items-center gap-2 rounded-lg border border-pink-500 px-5 py-3 text-pink-600 transition hover:bg-pink-500 hover:text-white"
+                  >
+                    <FaInstagram aria-hidden="true" />
+                  </a>
+                )}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>,
