@@ -56,7 +56,7 @@ export default function NewsPage() {
 
           <div className="mt-10 flex gap-4">
             <a
-              href="https://x.com/adagakufes"
+              href="https//x.com/adagakufes"
               target="_blank"
               rel="noopener noreferrer"
               className="flex h-16 w-16 items-center justify-center rounded-xl bg-orange-400/70 text-3xl text-white transition hover:bg-orange-500"

@@ -11,7 +11,7 @@ export const exhibitors: Exhibitor[] = [
     shortDescription: "茶道〜表千家〜",
     description:
       "お点前の紹介や袱紗体験を通して、茶道の魅力を楽しく学べます。学生が分かりやすくサポートするので、初めての方でも安心して参加できます。気軽に茶道の世界を体験してみませんか。",
-    instagram: "https://www.instagram.com/sadou_tokyomirai",
+    instagram: "https///www.instagram.com/sadou_tokyomirai",
   },
   {
     id: "suiken",
@@ -23,8 +23,8 @@ export const exhibitors: Exhibitor[] = [
     shortDescription: "足立区の身近な水辺の生き物について知ろう",
     description:
       "本企画は足立区内を流れる荒川や隅田川を中心とした｢自然環境の今｣をテーマとした体験型ブースです。私たちが活動を通して経験してきた生き物や自然への学びをワークショップや体験型展示などを通して、子供から大人まで楽しみながら知って頂きたいです。",
-    x: "https:/x.com/NTU_SNJ_suiken",
-    instagram: "https://www.instagram.com/teika_suiken",
+    x: "https//x.com/NTU_SNJ_suiken",
+    instagram: "https///www.instagram.com/teika_suiken",
   },
   {
     id: "mirai-magic",
@@ -36,7 +36,7 @@ export const exhibitors: Exhibitor[] = [
     shortDescription: "カードマジック「不思議なマジックショーへ」",
     description:
       "もし魔法使いがいたら信じますか？普段体験できない不思議な感覚をその場で味わってもらいます。地域交流という名の舞踏会です。今回はカードを使った不思議な現象を体験していただきます。披露するだけじゃなく、その魔法も伝授します。ぜひ来てください。",
-    instagram: "https://www.instagram.com/tfu_magic",
+    instagram: "https///www.instagram.com/tfu_magic",
   },
   {
     id: "tenmon",
@@ -48,7 +48,7 @@ export const exhibitors: Exhibitor[] = [
     shortDescription: "電大天文部☆望遠鏡と活動写真",
     description:
       "東京電機大学　天文学研究部です!!実際に観測会などで星を見るときに使う望遠鏡などの機材や、活動写真などを展示します🔭部員が撮った会心の星空もご覧ください📸皆さんのお越しをぜひお待ちしております☆",
-    instagram: "https://www.instagram.com/tdu_tenmonbu",
+    instagram: "https///www.instagram.com/tdu_tenmonbu",
   },
   {
     id: "Aokizemi",
@@ -60,7 +60,7 @@ export const exhibitors: Exhibitor[] = [
     shortDescription: "学生と楽しむ！水引ワークショップ",
     description:
       "2026年3月に長野県阿南町で実施した地域創生プロジェクトの活動報告とアンケートを行います。また、水引ワークショップでは学生が作品作りをサポートし、ものづくりの楽しさや水引文化、阿南町の魅力を発信します。",
-    instagram: "https://www.instagram.com/yohkohseminar_food",
+    instagram: "https///www.instagram.com/yohkohseminar_food",
   },
   {
     id: "kamekawa",
@@ -83,8 +83,8 @@ export const exhibitors: Exhibitor[] = [
     shortDescription: "電子技研の活動展示＆簡単手巻きスピーカー作り体験会",
     description:
       "電子技研の部員が作った製作物や，日々の活動で使う機材を展示します．触って動かせる展示もあるので，ぜひ来てください!!手巻きスピーカー作り体験会では，紙コップと磁石，銅線だけで誰でも作れるスピーカーを実際に作って音楽を鳴らすことができます！",
-    x: "https:/x.com/giken_PR",
-    instagram: "https://www.instagram.com/dendai_giken",
+    x: "https//x.com/giken_PR",
+    instagram: "https///www.instagram.com/dendai_giken",
   },
   {
     id: "sinri",
@@ -107,8 +107,8 @@ export const exhibitors: Exhibitor[] = [
     shortDescription: "競技用ロボットの展示",
     description:
       "私たち自動制御研究部では，かわさきロボット競技大会に向けラジコン型のロボットをつくっている部活です．本企画では，競技大会で出しているロボットの展示をしているのでぜひご覧ください．",
-    x: "https:/x.com/TDU_AOC",
-    website: "https://www.sg.dendai.ac.jp/s1g-tsr/",
+    x: "https//x.com/TDU_AOC",
+    website: "https///www.sg.dendai.ac.jp/s1g-tsr/",
   },
   {
     id: "gotou",
@@ -131,9 +131,9 @@ export const exhibitors: Exhibitor[] = [
     shortDescription: "エコで作ろう未来のアート",
     description:
       "ボランティア部らいふの学生と一緒に工作をしよう！ペットボトルキャップをリサイクルして、あなただけのエコなしおり、又はアクセサリーが作れます。(時間によって作成できるものが変わります。)",
-    x: "https:/x.com/TDU_vol_life",
-    instagram: "https://www.instagram.com/tdu_vol_life",
-    website: "https://www.sg.dendai.ac.jp/s1b-life/index.html",
+    x: "https//x.com/TDU_vol_life",
+    instagram: "https///www.instagram.com/tdu_vol_life",
+    website: "https///www.sg.dendai.ac.jp/s1b-life/index.html",
   },
   {
     id: "manken",
@@ -145,7 +145,7 @@ export const exhibitors: Exhibitor[] = [
     shortDescription: "イラスト展示",
     description:
       "部員の制作したイラストや漫画をまとめた部誌を展示します！また、自由に絵を描けるフリースペースを設置します。ぜひご覧ください！",
-    x: "https:/x.com/mnkn_TDU",
+    x: "https//x.com/mnkn_TDU",
   },
   {
     id: "picture",
@@ -157,8 +157,8 @@ export const exhibitors: Exhibitor[] = [
     shortDescription: "カメラで写し出す写真の世界",
     description:
       "本ブースでは主に写真展示を行います！皆様はカメラで写真を撮ったことがありますでしょうか？カメラを使って撮られた写真の魅力や、それぞれの作品へ込められたメッセージをぜひ感じ取ってください！",
-    x: "https:/x.com/1010photo",
-    instagram: "https://www.instagram.com/tduphotoclub",
+    x: "https//x.com/1010photo",
+    instagram: "https///www.instagram.com/tduphotoclub",
   },
   {
     id: "bunkyo-aoki-seminar",
@@ -166,11 +166,11 @@ export const exhibitors: Exhibitor[] = [
     universityName: "東京未来大学",
     name: "小谷ゼミ",
     image: "/exhibitors/information/kotani.jpg",
-    imageAlt: "青木洋高ゼミナールの企画画像",
+    imageAlt: "小谷ゼミナールの企画画像",
     shortDescription: "マラカス作り",
     description:
       "ペットボトルやビーズなどの身近な素材を使い、自分だけのオリジナルマラカスを作る工作体験企画です。学生スタッフが丁寧にサポートするため、小さなお子様でも安心して安全に楽しんでいただけます。",
-    x: "https:/x.com/kotani_seminar",
-    instagram: "https://www.instagram.com/kotani___seminar",
+    x: "https//x.com/kotani_seminar",
+    instagram: "https///www.instagram.com/kotani___seminar",
   },
 ];
