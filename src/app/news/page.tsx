@@ -1,8 +1,22 @@
 import Image from "next/image";
-import Link from "next/link";
 import { FaInstagram, FaXTwitter } from "react-icons/fa6";
 
 const newsTopics = [
+  {
+    id: 202607,
+    date: "2026.7",
+    title: "第2回あだち大学フェス出展団体決定",
+    image: "/news/202607.png",
+    text: (
+      <>
+        2026年に開催する「第2回あだち大学フェス」の出展団体が決定しました。
+        たくさんのご応募をいただき、誠にありがとうございました。
+        今年は、足立区内の5大学すべてから団体に出展していただけることになりました。個性豊かな団体による、楽しく魅力的な企画が盛りだくさんです。
+        ぜひ会場にお越しいただき、さまざまな出展をお楽しみください。
+        皆さまのご来場を心よりお待ちしております。
+      </>
+    ),
+  },
   {
     id: 202605,
     date: "2026.5",
@@ -12,11 +26,7 @@ const newsTopics = [
       <>
         第1回の反響を受け、第2回あだち大学フェスの開催が決定しました。
         2026あだち大学フェス実行委員会が始動し、公式Webサイトも新しくなりました。
-        現在、出展してくださる団体を募集しています。詳しくは
-        <Link href="/#recruitment" className="underline transition hover:opacity-70">
-          こちら
-        </Link>
-        。
+        現在、出展してくださる団体を募集しています。
       </>
     ),
   },
