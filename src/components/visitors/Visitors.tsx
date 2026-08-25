@@ -104,6 +104,18 @@ export default function Visitors() {
             {/* マップ下のボタン */}
             <div className="mt-6 space-y-4 md:mt-8 md:space-y-6">
               <FadeIn>
+                <a
+                  href="/pdf/pamphlet.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex w-full items-center justify-center gap-2 border-2 border-orange-400 bg-white/60 px-6 py-4 text-lg text-gray-900 shadow-sm transition hover:bg-orange-50 active:translate-y-1 md:text-xl"
+                >
+                  <span>パンフレットを見る</span>
+                  <FaArrowUpRightFromSquare className="text-lg text-orange-500" />
+                </a>
+              </FadeIn>
+
+              <FadeIn>
                 <div>
                   <button
                     type="button"
