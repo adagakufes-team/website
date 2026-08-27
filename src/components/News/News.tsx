@@ -3,6 +3,11 @@ import ViewMore from "./ViewMore";
 
 const newsItems = [
   {
+    id: 20260827,
+    date: "2026.08.27",
+    text: "第2回あだち大学フェスまであと1日",
+  },
+  {
     id: 202607,
     date: "2026.07",
     text: "第2回あだち大学フェス出展団体決定",
