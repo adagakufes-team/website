@@ -3,7 +3,7 @@ import { FaInstagram, FaXTwitter } from "react-icons/fa6";
 
 const newsTopics = [
   {
-    id: 202607,
+    id: 20260827,
     date: "2026.8.27",
     title: "第2回あだち大学フェスまであと１日",
     image: "/news/20260827.jpg",
