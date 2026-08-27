@@ -114,7 +114,7 @@ export const exhibitors: Exhibitor[] = [
     id: "gotou",
     university: "geidai",
     universityName: "東京藝術大学",
-    name: "後藤研究室",
+    name: "プロジェクト音響 後藤研究室",
     image: "/exhibitors/information/gotou.jpg",
     imageAlt: "後藤研究室の企画画像",
     shortDescription: "The String",
