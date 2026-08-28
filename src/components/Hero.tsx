@@ -35,7 +35,7 @@ const universities = [
     stay: { x: "0vw", y: "-34vh" },
   },
 ];
-
+const thanksMessage = Array.from("ご来場ありがとうございました");
 export default function Hero() {
   return (
     <section className="relative flex min-h-[88vh] items-center justify-center px-4 text-center">
@@ -98,6 +98,44 @@ export default function Hero() {
           8/28(金) 10:00〜15:00
         </motion.p>
       </motion.div>
+
+      {/* 最後に1文字ずつ表示 */}
+      <div className="pointer-events-none absolute left-1/2 top-[5%] z-20 h-[160px] w-[360px] -translate-x-1/2 md:h-[260px] md:w-[850px]">
+        <p className="sr-only">ご来場ありがとうございました</p>
+
+        {thanksMessage.map((char, index) => {
+          const x = 0.05 + (index / (thanksMessage.length - 1)) * 0.9;
+
+          const y = 12 + 55 * Math.pow(2 * x - 1, 2);
+
+          const rotate = -32 + 64 * x;
+
+          return (
+            <span
+              key={`${char}-${index}`}
+              className="absolute"
+              style={{
+                left: `${x * 100}%`,
+                top: `${y}%`,
+                transform: `translate(-50%, -50%) rotate(${rotate}deg)`,
+              }}
+            >
+              <motion.span
+                className="inline-block whitespace-nowrap text-2xl font-normal text-orange-500/55 md:text-5xl"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{
+                  delay: 5.1 + index * 0.04,
+                  duration: 0.3,
+                  ease: "easeOut",
+                }}
+              >
+                {char}
+              </motion.span>
+            </span>
+          );
+        })}
+      </div>
     </section>
   );
 }
