@@ -1,5 +1,6 @@
 import Image from "next/image";
 import FadeIn from "@/components/FadeIn";
+import LastUpdated from "@/components/LastUpdated";
 
 export default function About() {
   return (
@@ -18,7 +19,7 @@ export default function About() {
               <h3 className="flex items-center text-2xl text-black sm:text-3xl lg:text-4xl">
                 <Image
                   src="/logo/logo.png"
-                  alt="ロゴ"
+                  alt="あだち大学フェス ロゴ"
                   width={120}
                   height={120}
                   className="h-9 w-9 object-contain sm:h-9 sm:w-9 lg:h-9 lg:w-9"
@@ -37,7 +38,7 @@ export default function About() {
             <div className="flex justify-end lg:mt-4">
               <Image
                 src="/logo/logo.png"
-                alt="あだち大学フェスロゴ"
+                alt="あだち大学フェス ロゴ"
                 width={320}
                 height={320}
                 className="w-36 sm:w-48 lg:w-72"
@@ -45,6 +46,8 @@ export default function About() {
             </div>
           </FadeIn>
         </div>
+
+        <LastUpdated datetime="2026-09-11" className="mt-10" />
       </div>
     </section>
   );

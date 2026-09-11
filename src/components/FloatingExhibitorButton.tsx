@@ -44,7 +44,7 @@ export default function FloatingExhibitorButton() {
 
       {/* ロゴ */}
       <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-lg transition duration-300 group-hover:scale-105">
-        <Image src="/logo/logo.png" alt="あだち大学フェス" width={48} height={48} />
+        <Image src="/logo/logo.png" alt="あだち大学フェス ロゴ" width={48} height={48} />
       </div>
     </button>
   );
