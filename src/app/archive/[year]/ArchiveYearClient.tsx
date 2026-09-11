@@ -21,6 +21,7 @@ type Exhibitor = {
 
 type Archive = {
   title: string;
+  datetime: string;
   date: string;
   overview: string;
   website: string;
@@ -95,7 +96,9 @@ export default function ArchiveYearClient({ archive }: Props) {
 
           <h1 className="mt-2 text-4xl font-bold md:text-6xl">{archive.title}</h1>
 
-          <p className="mt-4 text-gray-500">{archive.date}</p>
+          <p className="mt-4 text-gray-500">
+            開催日：<time dateTime={archive.datetime}>{archive.date}</time>
+          </p>
         </section>
 
         {/* 開催概要 */}

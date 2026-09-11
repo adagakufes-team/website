@@ -4,26 +4,31 @@ import ViewMore from "./ViewMore";
 const newsItems = [
   {
     id: 20260828,
+    datetime: "2026-08-28",
     date: "2026.08.28",
     text: "ご来場ありがとうございました！",
   },
   {
     id: 20260827,
+    datetime: "2026-08-27",
     date: "2026.08.27",
     text: "第2回あだち大学フェスまであと1日",
   },
   {
     id: 202607,
+    datetime: "2026-07",
     date: "2026.07",
     text: "第2回あだち大学フェス出展団体決定",
   },
   {
     id: 202605,
+    datetime: "2026-05",
     date: "2026.05",
     text: "第2回あだち大学フェス開催決定",
   },
   {
     id: 20250828,
+    datetime: "2025-08-29",
     date: "2025.08",
     text: "第1回あだち大学フェス開催",
   },
@@ -97,7 +102,7 @@ export default function News() {
                   className="flex items-center gap-4 transition hover:opacity-60"
                 >
                   <p className="shrink-0 whitespace-nowrap font-serif text-sm text-gray-400 md:text-xl">
-                    {item.date}
+                    <time dateTime={item.datetime}>{item.date}</time>
                   </p>
 
                   <p className="min-w-0 flex-1 truncate font-serif text-sm text-gray-900/80 md:text-lg">

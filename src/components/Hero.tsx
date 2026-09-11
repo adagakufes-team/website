@@ -73,7 +73,7 @@ export default function Hero() {
       >
         <Image
           src="/logo/logo-horizontal.png"
-          alt="あだち大学フェス"
+          alt="あだち大学フェス ロゴ"
           width={700}
           height={240}
           priority
@@ -95,7 +95,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 4.3, duration: 0.5 }}
         >
-          8/28(金) 10:00〜15:00
+          <time dateTime="2026-08-28">2026年8月28日(金)</time> 10:00〜15:00
         </motion.p>
       </motion.div>
 

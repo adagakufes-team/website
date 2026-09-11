@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { ORGANIZER } from "@/data/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,6 +27,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "あだち大学フェス",
     images: ["/ogp.png"],
+  },
+  other: {
+    copyright: ORGANIZER,
   },
 };
 

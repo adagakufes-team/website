@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Notice from "./Notice";
 import FadeIn from "@/components/FadeIn";
+import LastUpdated from "@/components/LastUpdated";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 const googleMapEmbedUrl =
@@ -105,7 +106,7 @@ export default function Visitors() {
             <div className="mt-6 space-y-4 md:mt-8 md:space-y-6">
               <FadeIn>
                 <a
-                  href="/pdf/pamphlet.pdf"
+                  href="/pdf/adagakufes-2026-pamphlet.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex w-full items-center justify-center gap-2 border-2 border-orange-400 bg-white/60 px-6 py-4 text-lg text-gray-900 shadow-sm transition hover:bg-orange-50 active:translate-y-1 md:text-xl"
@@ -148,6 +149,8 @@ export default function Visitors() {
             </div>
           </div>
         </div>
+
+        <LastUpdated datetime="2026-09-11" className="mt-10 text-right" />
       </div>
     </section>
   );

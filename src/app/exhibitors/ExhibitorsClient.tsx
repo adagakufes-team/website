@@ -42,7 +42,7 @@ export default function ExhibitorsClient() {
       : exhibitors.filter((exhibitor) => exhibitor.university === selectedUniversity);
 
   return (
-    <main className="min-h-screen bg-[#fff7e8] px-6 py-12 text-gray-900 md:px-12 md:py-14">
+    <main className="px-6 pt-12 text-gray-900 md:px-12 md:pt-14">
       <div className="mx-auto max-w-[1500px]">
         <section className="grid gap-12 md:grid-cols-[320px_minmax(0,1fr)]">
           {/* 左：大学の絞り込み */}

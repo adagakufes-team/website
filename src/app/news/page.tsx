@@ -4,6 +4,7 @@ import { FaInstagram, FaXTwitter } from "react-icons/fa6";
 const newsTopics = [
   {
     id: 20260828,
+    datetime: "2026-08-28",
     date: "2026.8.28",
     title: "ご来場ありがとうございました！",
     image: "/news/20260828.jpg",
@@ -19,6 +20,7 @@ const newsTopics = [
   },
   {
     id: 20260827,
+    datetime: "2026-08-27",
     date: "2026.8.27",
     title: "第2回あだち大学フェスまであと１日",
     image: "/news/20260827.jpg",
@@ -36,6 +38,7 @@ const newsTopics = [
   },
   {
     id: 202607,
+    datetime: "2026-07",
     date: "2026.7",
     title: "第2回あだち大学フェス出展団体決定",
     image: "/news/202607.png",
@@ -51,6 +54,7 @@ const newsTopics = [
   },
   {
     id: 202605,
+    datetime: "2026-05",
     date: "2026.5",
     title: "第2回あだち大学フェス開催決定",
     image: "/news/202605.jpg",
@@ -64,7 +68,8 @@ const newsTopics = [
   },
   {
     id: 20250828,
-    date: "2025.8.28",
+    datetime: "2025-08-29",
+    date: "2025.8.29",
     title: "第1回あだち大学フェス開催",
     image: "/news/202508.jpg",
     text: (
@@ -126,7 +131,7 @@ export default function NewsPage() {
               className="animate-fade-up scroll-mt-28 rounded-3xl border border-orange-100 bg-white p-6 shadow-sm transition hover:shadow-md md:p-8"
             >
               <p className="text-lg font-light text-orange-500 underline decoration-orange-300">
-                {topic.date}
+                <time dateTime={topic.datetime}>{topic.date}</time>
               </p>
 
               <h2 className="mt-4 text-3xl font-bold leading-relaxed text-gray-900 md:text-4xl">

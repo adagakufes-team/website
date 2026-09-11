@@ -41,7 +41,7 @@ export default function Header() {
           <Link href="/" onClick={closeMenu}>
             <Image
               src="/logo/logo-horizontal.png"
-              alt="あだち大学フェス"
+              alt="あだち大学フェス ロゴ"
               width={200}
               height={40}
               className="h-7 w-auto md:h-9"
